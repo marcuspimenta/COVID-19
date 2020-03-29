@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.data.remote.api
+package com.pimenta.covid19.summary.data.datasouce.remote.api
 
 import com.pimenta.covid19.summary.data.model.SummaryResponse
 import io.reactivex.Single

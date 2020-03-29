@@ -16,7 +16,7 @@ package com.pimenta.covid19.summary.data.repository
 
 import com.pimenta.covid19.model.data.mapper.toDomainModel
 import com.pimenta.covid19.model.domain.CountryDomainModel
-import com.pimenta.covid19.summary.data.remote.datasource.SummaryRemoteDataSourceInterface
+import com.pimenta.covid19.summary.data.datasouce.remote.datasource.SummaryRemoteDataSourceInterface
 import io.reactivex.Single
 import javax.inject.Inject
 

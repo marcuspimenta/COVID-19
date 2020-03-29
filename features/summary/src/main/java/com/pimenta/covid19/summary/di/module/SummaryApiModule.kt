@@ -15,7 +15,7 @@
 package com.pimenta.covid19.summary.di.module
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.summary.data.remote.api.SummaryApi
+import com.pimenta.covid19.summary.data.datasouce.remote.api.SummaryApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

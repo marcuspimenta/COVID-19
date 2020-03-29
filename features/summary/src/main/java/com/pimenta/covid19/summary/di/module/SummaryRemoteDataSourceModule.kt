@@ -15,8 +15,8 @@
 package com.pimenta.covid19.summary.di.module
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.summary.data.remote.datasource.SummaryRemoteDataSource
-import com.pimenta.covid19.summary.data.remote.datasource.SummaryRemoteDataSourceInterface
+import com.pimenta.covid19.summary.data.datasouce.remote.datasource.SummaryRemoteDataSource
+import com.pimenta.covid19.summary.data.datasouce.remote.datasource.SummaryRemoteDataSourceInterface
 import dagger.Binds
 import dagger.Module
 

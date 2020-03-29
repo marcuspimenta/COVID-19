@@ -12,10 +12,10 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.data.remote.datasource
+package com.pimenta.covid19.summary.data.datasouce.remote.datasource
 
 import com.pimenta.covid19.summary.data.model.SummaryResponse
-import com.pimenta.covid19.summary.data.remote.api.SummaryApi
+import com.pimenta.covid19.summary.data.datasouce.remote.api.SummaryApi
 import io.reactivex.Single
 import javax.inject.Inject
 
