@@ -2,7 +2,7 @@
     package="com.pimenta.covid19.summary">
 
     <application>
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.ui.activity.SummaryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

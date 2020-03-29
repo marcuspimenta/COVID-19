@@ -24,14 +24,17 @@ object Versions {
     val ktlint = "9.2.1"
     val ben_mane_gralde = "0.28.0"
     val gson = "2.8.6"
+    val dagger = "2.27"
+    val dagger_compile = "2.27"
 }
 
 object Dependencies {
-    val kotlinStandardLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     val build_gradle = "com.android.tools.build:gradle:${Versions.build_gradle}"
     val kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:${Versions.ktlint}"
     val ben_mane_gralde = "com.github.ben-manes:gradle-versions-plugin:${Versions.ben_mane_gralde}"
-
     val gson = "com.google.code.gson:gson:${Versions.gson}"
+    val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    val dagger_compile = "com.google.dagger:dagger-compiler:${Versions.dagger_compile}"
 }

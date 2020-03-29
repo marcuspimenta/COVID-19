@@ -4,7 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     // Kotlin
-    implementation Dependencies.kotlinStandardLibrary
+    implementation Dependencies.kotlin
 
     // Gson
     implementation Dependencies.gson

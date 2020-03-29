@@ -1,11 +1,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation Dependencies.kotlinStandardLibrary
+    // Kotlin
+    implementation Dependencies.kotlin
+
+    // Dagger
+    implementation Dependencies.dagger
+    kapt Dependencies.dagger_compile
 
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
