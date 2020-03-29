@@ -18,6 +18,7 @@ import com.pimenta.covid19.presentation.di.annotation.ActivityScope
 import com.pimenta.covid19.summary.di.module.SummaryApiModule
 import com.pimenta.covid19.summary.di.module.SummaryRemoteDataSourceModule
 import com.pimenta.covid19.summary.di.module.SummaryRepositoryModule
+import com.pimenta.covid19.summary.di.module.SummaryUseCaseModule
 import com.pimenta.covid19.summary.presentation.ui.activity.SummaryActivity
 import dagger.Subcomponent
 
@@ -29,7 +30,8 @@ import dagger.Subcomponent
     modules = [
         SummaryApiModule::class,
         SummaryRemoteDataSourceModule::class,
-        SummaryRepositoryModule::class
+        SummaryRepositoryModule::class,
+        SummaryUseCaseModule::class
     ]
 )
 interface SummaryActivityComponent {
