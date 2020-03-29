@@ -1,4 +1,4 @@
-package com.pimenta.covid19
+package com.pimenta.covid19.summary
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
