@@ -15,11 +15,10 @@
 package com.pimenta.covid19.summary.di
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.summary.di.module.SummaryApiModule
-import com.pimenta.covid19.summary.di.module.SummaryRemoteDataSourceModule
-import com.pimenta.covid19.summary.di.module.SummaryRepositoryModule
-import com.pimenta.covid19.summary.di.module.SummaryUseCaseModule
+import com.pimenta.covid19.summary.di.module.*
+import com.pimenta.covid19.summary.presentation.presenter.SummaryContract
 import com.pimenta.covid19.summary.presentation.ui.activity.SummaryActivity
+import dagger.BindsInstance
 import dagger.Subcomponent
 
 /**
@@ -31,14 +30,15 @@ import dagger.Subcomponent
         SummaryApiModule::class,
         SummaryRemoteDataSourceModule::class,
         SummaryRepositoryModule::class,
-        SummaryUseCaseModule::class
+        SummaryUseCaseModule::class,
+        SummaryPresenterModule::class
     ]
 )
 interface SummaryActivityComponent {
 
     @Subcomponent.Factory
     interface Factory {
-        fun create(): SummaryActivityComponent
+        fun create(@BindsInstance view: SummaryContract.View): SummaryActivityComponent
     }
 
     fun inject(activity: SummaryActivity)

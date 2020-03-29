@@ -19,5 +19,5 @@ package com.pimenta.covid19.summary.di
  */
 interface SummaryActivityComponentProvider {
 
-    fun summaryActivityComponent(): SummaryActivityComponent
+    fun summaryActivityComponentFactory(): SummaryActivityComponent.Factory
 }

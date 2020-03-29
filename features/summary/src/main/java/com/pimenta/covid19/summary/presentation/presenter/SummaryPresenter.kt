@@ -12,18 +12,22 @@
  * the License.
  */
 
-package com.pimenta.covid19.presentation.presenter
+package com.pimenta.covid19.summary.presentation.presenter
 
-import io.reactivex.disposables.CompositeDisposable
+import com.pimenta.covid19.presentation.presenter.BasePresenter
+import com.pimenta.covid19.summary.domain.GetSummaryUseCaseInterface
+import javax.inject.Inject
 
 /**
  * Created by marcus on 29-03-2020.
  */
-abstract class BasePresenter {
+class SummaryPresenter @Inject constructor(
+    private val getSummaryUseCaseInterface: GetSummaryUseCaseInterface,
+    private val view: SummaryContract.View
+) : BasePresenter(), SummaryContract.Presenter {
 
-    protected val compositeDisposable: CompositeDisposable by lazy { CompositeDisposable() }
+    override fun loadSummary() {
 
-    fun dispose() {
-        compositeDisposable.dispose()
     }
+
 }

@@ -38,6 +38,6 @@ class Covid19Application : Application(),
             .build()
     }
 
-    override fun summaryActivityComponent(): SummaryActivityComponent =
-        applicationComponent.summaryActivityComponent().create()
+    override fun summaryActivityComponentFactory(): SummaryActivityComponent.Factory =
+        applicationComponent.summaryActivityComponent()
 }

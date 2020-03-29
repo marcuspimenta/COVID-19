@@ -12,18 +12,23 @@
  * the License.
  */
 
-package com.pimenta.covid19.presentation.presenter
+package com.pimenta.covid19.summary.di.module
 
-import io.reactivex.disposables.CompositeDisposable
+import com.pimenta.covid19.presentation.di.annotation.ActivityScope
+import com.pimenta.covid19.summary.presentation.presenter.SummaryContract
+import com.pimenta.covid19.summary.presentation.presenter.SummaryPresenter
+import dagger.Binds
+import dagger.Module
 
 /**
  * Created by marcus on 29-03-2020.
  */
-abstract class BasePresenter {
+@Module
+interface SummaryPresenterModule {
 
-    protected val compositeDisposable: CompositeDisposable by lazy { CompositeDisposable() }
-
-    fun dispose() {
-        compositeDisposable.dispose()
-    }
+    @Binds
+    @ActivityScope
+    fun providesSummaryPresenter(
+        summaryPresenter: SummaryPresenter
+    ): SummaryContract.Presenter
 }

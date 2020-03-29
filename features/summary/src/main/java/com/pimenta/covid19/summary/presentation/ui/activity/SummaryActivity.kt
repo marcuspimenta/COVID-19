@@ -16,22 +16,46 @@ package com.pimenta.covid19.summary.presentation.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.summary.R
 import com.pimenta.covid19.summary.di.SummaryActivityComponentProvider
+import com.pimenta.covid19.summary.presentation.presenter.SummaryContract
+import javax.inject.Inject
 
 /**
  * Created by marcus on 29-03-2020.
  */
-class SummaryActivity : AppCompatActivity() {
+class SummaryActivity : AppCompatActivity(),
+    SummaryContract.View {
+
+    @Inject
+    lateinit var presenter: SummaryContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as SummaryActivityComponentProvider)
-            .summaryActivityComponent()
-            .also {
-                it.inject(this)
-            }
+            .summaryActivityComponentFactory()
+            .create(this)
+            .inject(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        presenter.loadSummary()
+    }
+
+    override fun showProgress() {
+
+    }
+
+    override fun hideProgress() {
+
+    }
+
+    override fun showCountries(countries: List<CountryViewModel>) {
+
     }
 }

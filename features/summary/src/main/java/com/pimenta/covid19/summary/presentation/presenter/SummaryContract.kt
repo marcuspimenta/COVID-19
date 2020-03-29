@@ -12,18 +12,27 @@
  * the License.
  */
 
-package com.pimenta.covid19.presentation.presenter
+package com.pimenta.covid19.summary.presentation.presenter
 
-import io.reactivex.disposables.CompositeDisposable
+import com.pimenta.covid19.model.presentation.model.CountryViewModel
 
 /**
  * Created by marcus on 29-03-2020.
  */
-abstract class BasePresenter {
+interface SummaryContract {
 
-    protected val compositeDisposable: CompositeDisposable by lazy { CompositeDisposable() }
+    interface Presenter {
 
-    fun dispose() {
-        compositeDisposable.dispose()
+        fun loadSummary()
     }
+
+    interface View {
+
+        fun showProgress()
+
+        fun hideProgress()
+
+        fun showCountries(countries: List<CountryViewModel>)
+    }
+
 }
