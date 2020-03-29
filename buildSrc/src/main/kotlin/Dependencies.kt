@@ -12,10 +12,23 @@
  * the License.
  */
 
+object Config {
+    val minSdk = 16
+    val compileSdk = 29
+    val targetSdk = 29
+}
+
 object Versions {
     val kotlin = "1.3.71"
+    val build_gradle = "3.5.3"
+    val ktlint = "9.2.1"
+    val ben_mane_gralde = "0.28.0"
 }
 
 object Dependencies {
     val kotlinStandardLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    val build_gradle = "com.android.tools.build:gradle:${Versions.build_gradle}"
+    val kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:${Versions.ktlint}"
+    val ben_mane_gralde = "com.github.ben-manes:gradle-versions-plugin:${Versions.ben_mane_gralde}"
 }
