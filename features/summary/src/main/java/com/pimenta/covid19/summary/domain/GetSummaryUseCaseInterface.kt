@@ -22,5 +22,5 @@ import io.reactivex.Single
  */
 interface GetSummaryUseCaseInterface {
 
-    operator fun invoke(): Single<List<CountryDomainModel>>
+    operator fun invoke(): Single<List<CountryDomainModel>?>
 }

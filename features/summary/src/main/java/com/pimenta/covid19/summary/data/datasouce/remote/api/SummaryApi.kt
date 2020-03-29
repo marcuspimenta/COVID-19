@@ -23,6 +23,6 @@ import retrofit2.http.GET
  */
 interface SummaryApi {
 
-    @GET("summary")
-    fun getSummary(): Single<SummaryResponse>
+    @GET("/summary")
+    fun getSummary(): Single<SummaryResponse?>
 }

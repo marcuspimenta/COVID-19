@@ -27,7 +27,7 @@ class SummaryRepository @Inject constructor(
     private val summaryRemoteDataSource: SummaryRemoteDataSourceInterface
 ) : SummaryRepositoryInterface {
 
-    override fun getSummary(): Single<List<CountryDomainModel>> =
+    override fun getSummary(): Single<List<CountryDomainModel>?> =
         summaryRemoteDataSource.getSummary()
-            .map { it.countries.map { country -> country.toDomainModel() } }
+            .map { it.countries?.map { country -> country.toDomainModel() } }
 }

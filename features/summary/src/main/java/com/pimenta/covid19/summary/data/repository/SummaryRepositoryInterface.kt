@@ -22,5 +22,5 @@ import io.reactivex.Single
  */
 interface SummaryRepositoryInterface {
 
-    fun getSummary(): Single<List<CountryDomainModel>>
+    fun getSummary(): Single<List<CountryDomainModel>?>
 }

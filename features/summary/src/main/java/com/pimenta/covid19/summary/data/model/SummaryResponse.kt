@@ -21,5 +21,5 @@ import com.pimenta.covid19.model.data.remote.CountryResponse
  * Created by marcus on 29-03-2020.
  */
 data class SummaryResponse(
-    @SerializedName("Countries") val countries: List<CountryResponse>
+    @SerializedName("Countries") val countries: List<CountryResponse>?
 )

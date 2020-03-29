@@ -16,6 +16,7 @@ package com.pimenta.covid19.di.module
 
 import android.app.Application
 import com.pimenta.covid19.network.di.module.RemoteDateSourceConfigurationModule
+import com.pimenta.covid19.presentation.scheduler.RxScheduler
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -35,4 +36,8 @@ class ApplicationModule(
     @Provides
     @Singleton
     fun provideApplication() = application
+
+    @Provides
+    @Singleton
+    fun providesSchedulers() = RxScheduler()
 }

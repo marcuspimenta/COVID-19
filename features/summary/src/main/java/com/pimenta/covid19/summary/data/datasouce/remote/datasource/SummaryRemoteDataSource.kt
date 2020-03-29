@@ -26,6 +26,6 @@ class SummaryRemoteDataSource @Inject constructor(
     private val summaryApi: SummaryApi
 ) : SummaryRemoteDataSourceInterface {
 
-    override fun getSummary(): Single<SummaryResponse> =
+    override fun getSummary(): Single<SummaryResponse?> =
         summaryApi.getSummary()
 }

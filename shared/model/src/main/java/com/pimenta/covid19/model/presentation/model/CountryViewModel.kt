@@ -18,12 +18,12 @@ package com.pimenta.covid19.model.presentation.model
  * Created by marcus on 29-03-2020.
  */
 data class CountryViewModel(
-    val name: String,
-    val slug: String,
-    val newConfirmed: Int,
-    val totalConfirmed: Int,
-    val newDeaths: Int,
-    val totalDeaths: Int,
-    val newRecovered: Int,
-    val totalRecovered: Int
+    val name: String?,
+    val slug: String?,
+    val newConfirmed: Int?,
+    val totalConfirmed: Int?,
+    val newDeaths: Int?,
+    val totalDeaths: Int?,
+    val newRecovered: Int?,
+    val totalRecovered: Int?
 )

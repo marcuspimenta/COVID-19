@@ -12,20 +12,17 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.domain
+package com.pimenta.covid19.presentation.scheduler
 
-import com.pimenta.covid19.model.domain.CountryDomainModel
-import com.pimenta.covid19.summary.data.repository.SummaryRepositoryInterface
-import io.reactivex.Single
-import javax.inject.Inject
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by marcus on 29-03-2020.
  */
-class GetSummaryUseCase @Inject constructor(
-    private val summaryRepository: SummaryRepositoryInterface
-) : GetSummaryUseCaseInterface {
-
-    override fun invoke(): Single<List<CountryDomainModel>?> =
-        summaryRepository.getSummary()
-}
+class RxScheduler(
+    val ioScheduler: Scheduler = Schedulers.io(),
+    val computationScheduler: Scheduler = Schedulers.computation(),
+    val mainScheduler: Scheduler = AndroidSchedulers.mainThread()
+)

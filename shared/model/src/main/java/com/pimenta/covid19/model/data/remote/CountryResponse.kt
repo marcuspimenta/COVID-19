@@ -20,12 +20,12 @@ import com.google.gson.annotations.SerializedName
  * Created by marcus on 29-03-2020.
  */
 data class CountryResponse(
-    @SerializedName("Country") val name: String,
-    @SerializedName("CountrySlug") val slug: String,
-    @SerializedName("NewConfirmed") val newConfirmed: Int,
-    @SerializedName("TotalConfirmed") val totalConfirmed: Int,
-    @SerializedName("NewDeaths") val newDeaths: Int,
-    @SerializedName("TotalDeaths") val totalDeaths: Int,
-    @SerializedName("NewRecovered") val newRecovered: Int,
-    @SerializedName("TotalRecovered") val totalRecovered: Int
+    @SerializedName("Country") val name: String?,
+    @SerializedName("CountrySlug") val slug: String?,
+    @SerializedName("NewConfirmed") val newConfirmed: Int?,
+    @SerializedName("TotalConfirmed") val totalConfirmed: Int?,
+    @SerializedName("NewDeaths") val newDeaths: Int?,
+    @SerializedName("TotalDeaths") val totalDeaths: Int?,
+    @SerializedName("NewRecovered") val newRecovered: Int?,
+    @SerializedName("TotalRecovered") val totalRecovered: Int?
 )

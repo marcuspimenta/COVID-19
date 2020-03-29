@@ -22,6 +22,6 @@ import io.reactivex.Single
  */
 interface SummaryRemoteDataSourceInterface {
 
-    fun getSummary(): Single<SummaryResponse>
+    fun getSummary(): Single<SummaryResponse?>
 
 }
