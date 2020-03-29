@@ -23,6 +23,7 @@ object Versions {
     val build_gradle = "3.5.3"
     val ktlint = "9.2.1"
     val ben_mane_gralde = "0.28.0"
+    val gson = "2.8.6"
 }
 
 object Dependencies {
@@ -31,4 +32,6 @@ object Dependencies {
     val kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:${Versions.ktlint}"
     val ben_mane_gralde = "com.github.ben-manes:gradle-versions-plugin:${Versions.ben_mane_gralde}"
+
+    val gson = "com.google.code.gson:gson:${Versions.gson}"
 }

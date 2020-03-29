@@ -1,3 +1,4 @@
 rootProject.name='COVID-19'
 include ':app'
 include ':features:summary'
+include ':shared:model'

@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    // Kotlin
+    implementation Dependencies.kotlinStandardLibrary
+
+    // Gson
+    implementation Dependencies.gson
+
+}
