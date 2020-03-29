@@ -12,25 +12,17 @@
  * the License.
  */
 
-package com.pimenta.covid19.di
+package com.pimenta.covid19.di.module
 
-import com.pimenta.covid19.di.module.ApplicationModule
-import com.pimenta.covid19.di.module.SubcomponentsModule
 import com.pimenta.covid19.summary.di.SummaryActivityComponent
-import dagger.Component
-import javax.inject.Singleton
+import dagger.Module
 
 /**
  * Created by marcus on 29-03-2020.
  */
-@Singleton
-@Component(
-    modules = [
-        ApplicationModule::class,
-        SubcomponentsModule::class
+@Module(
+    subcomponents = [
+        SummaryActivityComponent::class
     ]
 )
-interface ApplicationComponent {
-
-    fun summaryActivityComponent(): SummaryActivityComponent.Factory
-}
+class SubcomponentsModule

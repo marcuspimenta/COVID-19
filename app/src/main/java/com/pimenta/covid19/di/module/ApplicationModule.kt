@@ -15,6 +15,7 @@
 package com.pimenta.covid19.di.module
 
 import android.app.Application
+import com.pimenta.covid19.network.di.module.RemoteDateSourceConfigurationModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -22,7 +23,11 @@ import javax.inject.Singleton
 /**
  * Created by marcus on 29-03-2020.
  */
-@Module
+@Module(
+    includes = [
+        RemoteDateSourceConfigurationModule::class
+    ]
+)
 class ApplicationModule(
     private val application: Application
 ) {

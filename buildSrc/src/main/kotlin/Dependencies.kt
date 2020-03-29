@@ -28,6 +28,11 @@ object Versions {
     val dagger = "2.27"
     val dagger_compile = "2.27"
     val rxandroid = "2.1.1"
+    val retrofit = "2.7.2"
+    val retrofit_converter_gson = "2.7.2"
+    val okhttp = "4.4.1"
+    val logging_interceptor = "4.4.1"
+    val retrofit2_rxjava2_adapter = "1.0.0"
 }
 
 object Dependencies {
@@ -41,4 +46,9 @@ object Dependencies {
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val dagger_compile = "com.google.dagger:dagger-compiler:${Versions.dagger_compile}"
     val rxandroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid}"
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val retrofit_converter_gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit_converter_gson}"
+    val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+    val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.logging_interceptor}"
+    val retrofit2_rxjava2_adapter = "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${Versions.retrofit2_rxjava2_adapter}"
 }

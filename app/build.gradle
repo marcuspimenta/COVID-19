@@ -29,6 +29,7 @@ android {
 
 dependencies {
     implementation project(':features:summary')
+    implementation project(':shared:network')
 
     // Kotlin
     implementation Dependencies.kotlin
