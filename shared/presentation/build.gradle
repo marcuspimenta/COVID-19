@@ -5,8 +5,8 @@ dependencies {
     // Kotlin
     implementation Dependencies.kotlin
 
-    // Gson
-    implementation Dependencies.gson
+    // Rx
+    implementation Dependencies.rxandroid
 
     // JUnit
     testImplementation Dependencies.junit

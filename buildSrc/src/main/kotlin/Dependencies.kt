@@ -23,9 +23,11 @@ object Versions {
     val build_gradle = "3.5.3"
     val ktlint = "9.2.1"
     val ben_mane_gralde = "0.28.0"
+    val junit = "4.13"
     val gson = "2.8.6"
     val dagger = "2.27"
     val dagger_compile = "2.27"
+    val rxandroid = "2.1.1"
 }
 
 object Dependencies {
@@ -34,7 +36,9 @@ object Dependencies {
     val kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:${Versions.ktlint}"
     val ben_mane_gralde = "com.github.ben-manes:gradle-versions-plugin:${Versions.ben_mane_gralde}"
+    val junit = "junit:junit:${Versions.junit}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val dagger_compile = "com.google.dagger:dagger-compiler:${Versions.dagger_compile}"
+    val rxandroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid}"
 }
