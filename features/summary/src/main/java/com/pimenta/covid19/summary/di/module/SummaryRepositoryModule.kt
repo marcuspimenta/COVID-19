@@ -12,32 +12,23 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.di
+package com.pimenta.covid19.summary.di.module
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.summary.di.module.SummaryApiModule
-import com.pimenta.covid19.summary.di.module.SummaryRemoteDataSourceModule
-import com.pimenta.covid19.summary.di.module.SummaryRepositoryModule
-import com.pimenta.covid19.summary.presentation.ui.activity.SummaryActivity
-import dagger.Subcomponent
+import com.pimenta.covid19.summary.data.repository.SummaryRepository
+import com.pimenta.covid19.summary.data.repository.SummaryRepositoryInterface
+import dagger.Binds
+import dagger.Module
 
 /**
  * Created by marcus on 29-03-2020.
  */
-@ActivityScope
-@Subcomponent(
-    modules = [
-        SummaryApiModule::class,
-        SummaryRemoteDataSourceModule::class,
-        SummaryRepositoryModule::class
-    ]
-)
-interface SummaryActivityComponent {
+@Module
+interface SummaryRepositoryModule {
 
-    @Subcomponent.Factory
-    interface Factory {
-        fun create(): SummaryActivityComponent
-    }
-
-    fun inject(activity: SummaryActivity)
+    @Binds
+    @ActivityScope
+    fun providesSummaryRepository(
+        repository: SummaryRepository
+    ): SummaryRepositoryInterface
 }

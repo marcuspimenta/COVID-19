@@ -12,32 +12,24 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.di
+package com.pimenta.covid19.summary.di.module
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.summary.di.module.SummaryApiModule
-import com.pimenta.covid19.summary.di.module.SummaryRemoteDataSourceModule
-import com.pimenta.covid19.summary.di.module.SummaryRepositoryModule
-import com.pimenta.covid19.summary.presentation.ui.activity.SummaryActivity
-import dagger.Subcomponent
+import com.pimenta.covid19.summary.data.remote.datasource.SummaryRemoteDataSource
+import com.pimenta.covid19.summary.data.remote.datasource.SummaryRemoteDataSourceInterface
+import dagger.Binds
+import dagger.Module
 
 /**
  * Created by marcus on 29-03-2020.
  */
-@ActivityScope
-@Subcomponent(
-    modules = [
-        SummaryApiModule::class,
-        SummaryRemoteDataSourceModule::class,
-        SummaryRepositoryModule::class
-    ]
-)
-interface SummaryActivityComponent {
+@Module
+interface SummaryRemoteDataSourceModule {
 
-    @Subcomponent.Factory
-    interface Factory {
-        fun create(): SummaryActivityComponent
-    }
+    @Binds
+    @ActivityScope
+    fun providesSummaryRemoteDataSource(
+        remoteDateSource: SummaryRemoteDataSource
+    ): SummaryRemoteDataSourceInterface
 
-    fun inject(activity: SummaryActivity)
 }

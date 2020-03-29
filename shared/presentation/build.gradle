@@ -5,6 +5,9 @@ dependencies {
     // Kotlin
     implementation Dependencies.kotlin
 
+    // Dagger
+    implementation Dependencies.dagger
+
     // Rx
     implementation Dependencies.rxandroid
 

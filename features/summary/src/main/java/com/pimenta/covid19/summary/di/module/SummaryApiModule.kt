@@ -12,32 +12,22 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.di
+package com.pimenta.covid19.summary.di.module
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.summary.di.module.SummaryApiModule
-import com.pimenta.covid19.summary.di.module.SummaryRemoteDataSourceModule
-import com.pimenta.covid19.summary.di.module.SummaryRepositoryModule
-import com.pimenta.covid19.summary.presentation.ui.activity.SummaryActivity
-import dagger.Subcomponent
+import com.pimenta.covid19.summary.data.remote.api.SummaryApi
+import dagger.Module
+import dagger.Provides
+import retrofit2.Retrofit
 
 /**
  * Created by marcus on 29-03-2020.
  */
-@ActivityScope
-@Subcomponent(
-    modules = [
-        SummaryApiModule::class,
-        SummaryRemoteDataSourceModule::class,
-        SummaryRepositoryModule::class
-    ]
-)
-interface SummaryActivityComponent {
+@Module
+class SummaryApiModule {
 
-    @Subcomponent.Factory
-    interface Factory {
-        fun create(): SummaryActivityComponent
-    }
-
-    fun inject(activity: SummaryActivity)
+    @Provides
+    @ActivityScope
+    fun provideSummaryApi(retrofit: Retrofit) =
+        retrofit.create(SummaryApi::class.java)
 }
