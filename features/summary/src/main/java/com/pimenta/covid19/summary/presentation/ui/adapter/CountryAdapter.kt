@@ -46,9 +46,12 @@ class CountryAdapter constructor(
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
         fun bind(countryViewModel: CountryViewModel) {
-            containerView.nameTextView.text = countryViewModel.name
-            containerView.setOnClickListener {
-                onItemViewClickedListener?.onItemClicked(countryViewModel)
+            with(containerView) {
+                nameTextView.text = countryViewModel.name
+                totalConfirmedTextView.text = countryViewModel.totalConfirmed.toString()
+                setOnClickListener {
+                    onItemViewClickedListener?.onItemClicked(countryViewModel)
+                }
             }
         }
     }
