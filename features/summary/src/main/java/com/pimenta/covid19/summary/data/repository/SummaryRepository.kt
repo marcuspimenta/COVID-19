@@ -32,6 +32,9 @@ class SummaryRepository @Inject constructor(
             .map {
                 it.countries?.filter { country ->
                     !country.name.isNullOrBlank() && country.totalConfirmed ?: 0 > 0
-                }?.map { country -> country.toDomainModel() }
+                }
+                    ?.sortedBy { country -> country.totalConfirmed }
+                    ?.map { country -> country.toDomainModel() }
+                    ?.reversed()
             }
 }
