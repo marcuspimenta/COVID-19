@@ -5,7 +5,7 @@
     android:id="@+id/rootCardView"
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_root_height"
-    android:layout_margin="@dimen/card_root_margin"
+    android:layout_marginBottom="@dimen/card_root_margin"
     android:foreground="?android:attr/selectableItemBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout

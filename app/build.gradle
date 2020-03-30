@@ -47,5 +47,4 @@ dependencies {
 
     // AndroidX
     implementation Dependencies.androidx_appcompat
-    implementation Dependencies.skeleton
 }

@@ -33,8 +33,6 @@ dependencies {
     implementation Dependencies.androidx_recyclerview
     implementation Dependencies.androidx_cardview
     implementation Dependencies.androidx_swiperefreshlayout
-    implementation Dependencies.skeleton
-    implementation Dependencies.shimmerlayout
 
     // Test
     androidTestImplementation Dependencies.androidx_junit

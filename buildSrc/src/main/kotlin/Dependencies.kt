@@ -41,8 +41,6 @@ object Versions {
     val androidx_recyclerview = "1.1.0"
     val androidx_cardview = "1.0.0"
     val androidx_swiperefreshlayout = "1.0.0"
-    val skeleton = "1.1.2"
-    val shimmerlayout = "2.1.0"
 }
 
 object Dependencies {
@@ -69,6 +67,4 @@ object Dependencies {
     val androidx_recyclerview = "androidx.recyclerview:recyclerview:${Versions.androidx_recyclerview}"
     val androidx_cardview = "androidx.cardview:cardview:${Versions.androidx_cardview}"
     val androidx_swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidx_swiperefreshlayout}"
-    val skeleton = "com.ethanhua:skeleton:${Versions.skeleton}"
-    val shimmerlayout = "io.supercharge:shimmerlayout:${Versions.shimmerlayout}"
 }
