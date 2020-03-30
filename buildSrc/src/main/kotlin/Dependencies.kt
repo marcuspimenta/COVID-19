@@ -33,6 +33,16 @@ object Versions {
     val okhttp = "4.4.1"
     val logging_interceptor = "4.4.1"
     val retrofit2_rxjava2_adapter = "1.0.0"
+    val androidx_junit = "1.1.1"
+    val androidx_espresso = "3.2.0"
+    val androidx_appcompat = "1.1.0"
+    val androidx_core = "1.2.0"
+    val androidx_constraintlayout = "1.1.3"
+    val androidx_recyclerview = "1.1.0"
+    val androidx_cardview = "1.0.0"
+    val androidx_swiperefreshlayout = "1.0.0"
+    val skeleton = "1.1.2"
+    val shimmerlayout = "2.1.0"
 }
 
 object Dependencies {
@@ -51,4 +61,14 @@ object Dependencies {
     val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
     val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.logging_interceptor}"
     val retrofit2_rxjava2_adapter = "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${Versions.retrofit2_rxjava2_adapter}"
+    val androidx_junit = "androidx.test.ext:junit:${Versions.androidx_junit}"
+    val androidx_espresso = "androidx.test.espresso:espresso-core:${Versions.androidx_espresso}"
+    val androidx_appcompat = "androidx.appcompat:appcompat:${Versions.androidx_appcompat}"
+    val androidx_core = "androidx.core:core-ktx:${Versions.androidx_core}"
+    val androidx_constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.androidx_constraintlayout}"
+    val androidx_recyclerview = "androidx.recyclerview:recyclerview:${Versions.androidx_recyclerview}"
+    val androidx_cardview = "androidx.cardview:cardview:${Versions.androidx_cardview}"
+    val androidx_swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidx_swiperefreshlayout}"
+    val skeleton = "com.ethanhua:skeleton:${Versions.skeleton}"
+    val shimmerlayout = "io.supercharge:shimmerlayout:${Versions.shimmerlayout}"
 }
