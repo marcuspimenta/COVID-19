@@ -63,6 +63,8 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
             layoutManager = LinearLayoutManager(context)
             adapter = countryAdapter
         }
+
+        swipeContainer.setOnRefreshListener { presenter.loadSummary() }
     }
 
     override fun onResume() {
@@ -80,6 +82,7 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
     }
 
     override fun hideProgress() {
+        swipeContainer.isRefreshing = false
         skeletonScreen.hide()
     }
 
