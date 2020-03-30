@@ -35,7 +35,7 @@ class SummaryPresenter @Inject constructor(
     }
 
     override fun loadSummary() {
-        getSummaryUseCase.invoke()
+        getSummaryUseCase()
             .subscribeOn(rxScheduler.ioScheduler)
             .observeOn(rxScheduler.computationScheduler)
             .map { it.map { country -> country.toViewModel() } }

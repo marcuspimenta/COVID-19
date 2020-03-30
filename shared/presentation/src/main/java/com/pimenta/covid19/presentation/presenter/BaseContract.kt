@@ -12,28 +12,16 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.presentation.presenter
-
-import com.pimenta.covid19.model.presentation.model.CountryViewModel
-import com.pimenta.covid19.presentation.presenter.BaseContract
+package com.pimenta.covid19.presentation.presenter
 
 /**
- * Created by marcus on 29-03-2020.
+ * Created by marcus on 30-03-2020.
  */
-interface SummaryContract {
+interface BaseContract {
 
-    interface Presenter : BaseContract.Presenter {
+    interface Presenter {
 
-        fun loadSummary()
+        fun dispose()
+
     }
-
-    interface View {
-
-        fun showProgress()
-
-        fun hideProgress()
-
-        fun showCountries(countries: List<CountryViewModel>)
-    }
-
 }

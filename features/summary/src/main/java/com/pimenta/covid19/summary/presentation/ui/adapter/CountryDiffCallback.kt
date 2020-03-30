@@ -12,28 +12,19 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.presentation.presenter
+package com.pimenta.covid19.summary.presentation.ui.adapter
 
+import androidx.recyclerview.widget.DiffUtil
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
-import com.pimenta.covid19.presentation.presenter.BaseContract
 
 /**
- * Created by marcus on 29-03-2020.
+ * Created by marcus on 30-03-2020.
  */
-interface SummaryContract {
+class CountryDiffCallback : DiffUtil.ItemCallback<CountryViewModel>() {
 
-    interface Presenter : BaseContract.Presenter {
+    override fun areItemsTheSame(oldItem: CountryViewModel, newItem: CountryViewModel): Boolean =
+        oldItem.name == newItem.name
 
-        fun loadSummary()
-    }
-
-    interface View {
-
-        fun showProgress()
-
-        fun hideProgress()
-
-        fun showCountries(countries: List<CountryViewModel>)
-    }
-
+    override fun areContentsTheSame(oldItem: CountryViewModel, newItem: CountryViewModel): Boolean =
+        oldItem == newItem
 }

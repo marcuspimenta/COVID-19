@@ -30,6 +30,7 @@ dependencies {
     implementation project(':features:summary')
     implementation project(':shared:network')
     implementation project(':shared:presentation')
+    implementation project(':shared:model')
 
     // Kotlin
     implementation Dependencies.kotlin

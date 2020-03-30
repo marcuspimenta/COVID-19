@@ -15,18 +15,29 @@
 package com.pimenta.covid19.summary.presentation.ui.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.summary.R
 import com.pimenta.covid19.summary.di.SummaryActivityComponentProvider
 import com.pimenta.covid19.summary.presentation.presenter.SummaryContract
+import com.pimenta.covid19.summary.presentation.ui.adapter.CountryAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 /**
  * Created by marcus on 29-03-2020.
  */
 class SummaryActivity : AppCompatActivity(),
-    SummaryContract.View {
+    SummaryContract.View, CountryAdapter.OnItemViewClickedListener {
+
+    private val countryAdapter: CountryAdapter by lazy {
+        CountryAdapter().apply {
+            onItemViewClickedListener = this@SummaryActivity
+        }
+    }
 
     @Inject
     lateinit var presenter: SummaryContract.Presenter
@@ -39,6 +50,12 @@ class SummaryActivity : AppCompatActivity(),
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        countriesRecyclerView.apply {
+            itemAnimator = DefaultItemAnimator()
+            layoutManager = LinearLayoutManager(context)
+            adapter = countryAdapter
+        }
     }
 
     override fun onResume() {
@@ -47,15 +64,24 @@ class SummaryActivity : AppCompatActivity(),
         presenter.loadSummary()
     }
 
-    override fun showProgress() {
+    override fun onDestroy() {
+        presenter.dispose()
+        super.onDestroy()
+    }
 
+    override fun showProgress() {
+        progressBar.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
-
+        progressBar.visibility = View.INVISIBLE
     }
 
     override fun showCountries(countries: List<CountryViewModel>) {
+        countryAdapter.submitList(countries)
+    }
+
+    override fun onItemClicked(countryViewModel: CountryViewModel) {
 
     }
 }
