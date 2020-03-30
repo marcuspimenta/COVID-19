@@ -27,10 +27,9 @@ import kotlinx.android.synthetic.main.item_country.view.*
 /**
  * Created by marcus on 30-03-2020.
  */
-class CountryAdapter :
-    ListAdapter<CountryViewModel, CountryAdapter.CountryViewHolder>(CountryDiffCallback()) {
-
+class CountryAdapter constructor(
     var onItemViewClickedListener: OnItemViewClickedListener? = null
+) : ListAdapter<CountryViewModel, CountryAdapter.CountryViewHolder>(CountryDiffCallback()) {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): CountryViewHolder {
         val view =

@@ -15,10 +15,10 @@
 package com.pimenta.covid19.summary.presentation.ui.activity
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ethanhua.skeleton.Skeleton
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.summary.R
 import com.pimenta.covid19.summary.di.SummaryActivityComponentProvider
@@ -34,9 +34,16 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
     CountryAdapter.OnItemViewClickedListener {
 
     private val countryAdapter: CountryAdapter by lazy {
-        CountryAdapter().apply {
-            onItemViewClickedListener = this@SummaryActivity
-        }
+        CountryAdapter(this)
+    }
+
+    private val skeletonScreen by lazy {
+        Skeleton.bind(countriesRecyclerView)
+            .adapter(countryAdapter)
+            .load(R.layout.item_country)
+            .shimmer(true)
+            .angle(20)
+            .show()
     }
 
     @Inject
@@ -69,11 +76,11 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
     }
 
     override fun showProgress() {
-        progressBar.visibility = View.VISIBLE
+        skeletonScreen.show()
     }
 
     override fun hideProgress() {
-        progressBar.visibility = View.INVISIBLE
+        skeletonScreen.hide()
     }
 
     override fun showCountries(countries: List<CountryViewModel>) {
