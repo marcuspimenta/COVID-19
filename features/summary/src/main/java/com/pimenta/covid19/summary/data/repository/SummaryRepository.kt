@@ -29,5 +29,9 @@ class SummaryRepository @Inject constructor(
 
     override fun getSummary(): Single<List<CountryDomainModel>?> =
         summaryRemoteDataSource.getSummary()
-            .map { it.countries?.map { country -> country.toDomainModel() } }
+            .map {
+                it.countries?.filter { country ->
+                    !country.name.isNullOrBlank() && country.totalConfirmed ?: 0 > 0
+                }?.map { country -> country.toDomainModel() }
+            }
 }

@@ -30,8 +30,8 @@ import javax.inject.Inject
 /**
  * Created by marcus on 29-03-2020.
  */
-class SummaryActivity : AppCompatActivity(),
-    SummaryContract.View, CountryAdapter.OnItemViewClickedListener {
+class SummaryActivity : AppCompatActivity(), SummaryContract.View,
+    CountryAdapter.OnItemViewClickedListener {
 
     private val countryAdapter: CountryAdapter by lazy {
         CountryAdapter().apply {
@@ -60,7 +60,6 @@ class SummaryActivity : AppCompatActivity(),
 
     override fun onResume() {
         super.onResume()
-
         presenter.loadSummary()
     }
 
