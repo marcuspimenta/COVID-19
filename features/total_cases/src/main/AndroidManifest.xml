@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pimenta.covid19.totalcases">
+
+    <application>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name=".presentation.ui.activity.TotalCasesActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.pimenta.covid19.totalcases.open"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

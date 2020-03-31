@@ -12,33 +12,20 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.presentation.presenter
-
-import android.content.Intent
-import com.pimenta.covid19.model.presentation.model.CountryViewModel
-import com.pimenta.covid19.presentation.presenter.BaseContract
+package com.pimenta.covid19.totalcases.presentation.presenter
 
 /**
- * Created by marcus on 29-03-2020.
+ * Created by marcus on 31-03-2020.
  */
-interface SummaryContract {
+interface TotalCasesContract {
 
-    interface Presenter : BaseContract.Presenter {
+    interface Presenter {
 
-        fun loadSummary()
 
-        fun countryClicked(country: CountryViewModel)
     }
 
     interface View {
 
-        fun showProgress()
 
-        fun hideProgress()
-
-        fun showCountries(countries: List<CountryViewModel>)
-
-        fun openTotalCases(countryViewModel: CountryViewModel)
     }
-
 }

@@ -41,6 +41,7 @@ object Versions {
     val androidx_recyclerview = "1.1.0"
     val androidx_cardview = "1.0.0"
     val androidx_swiperefreshlayout = "1.0.0"
+    val androidx_material = "1.1.0-alpha04"
 }
 
 object Dependencies {
@@ -67,4 +68,5 @@ object Dependencies {
     val androidx_recyclerview = "androidx.recyclerview:recyclerview:${Versions.androidx_recyclerview}"
     val androidx_cardview = "androidx.cardview:cardview:${Versions.androidx_cardview}"
     val androidx_swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidx_swiperefreshlayout}"
+    val androidx_material = "com.google.android.material:material:${Versions.androidx_material}"
 }

@@ -18,6 +18,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.pimenta.covid19.actions.Actions
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.summary.R
 import com.pimenta.covid19.summary.di.SummaryActivityComponentProvider
@@ -77,7 +78,12 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
         countryAdapter.submitList(countries)
     }
 
-    override fun onItemClicked(countryViewModel: CountryViewModel) {
+    override fun openTotalCases(countryViewModel: CountryViewModel) {
+        val intent = Actions.openTotalCases(this, countryViewModel)
+        startActivity(intent)
+    }
 
+    override fun onItemClicked(countryViewModel: CountryViewModel) {
+        presenter.countryClicked(countryViewModel)
     }
 }

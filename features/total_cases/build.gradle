@@ -1,39 +1,19 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation project(':shared:presentation')
     implementation project(':shared:model')
-    implementation project(':shared:actions')
 
     // Kotlin
     implementation Dependencies.kotlin
-
-    // Dagger
-    implementation Dependencies.dagger
-    kapt Dependencies.dagger_compile
-
-    // Retrofit
-    implementation Dependencies.retrofit
-
-    // Rx
-    implementation Dependencies.rxandroid
-
-    // Gson
-    implementation Dependencies.gson
-
-    // JUnit
-    testImplementation Dependencies.junit
 
     // AndroidX
     implementation Dependencies.androidx_appcompat
     implementation Dependencies.androidx_core
     implementation Dependencies.androidx_constraintlayout
-    implementation Dependencies.androidx_recyclerview
-    implementation Dependencies.androidx_cardview
-    implementation Dependencies.androidx_swiperefreshlayout
+    implementation Dependencies.androidx_material
 
     // Test
     androidTestImplementation Dependencies.androidx_junit

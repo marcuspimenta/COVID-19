@@ -12,33 +12,23 @@
  * the License.
  */
 
-package com.pimenta.covid19.summary.presentation.presenter
+package com.pimenta.covid19.actions
 
+import android.content.Context
 import android.content.Intent
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
-import com.pimenta.covid19.presentation.presenter.BaseContract
 
 /**
- * Created by marcus on 29-03-2020.
+ * Created by marcus on 31-03-2020.
  */
-interface SummaryContract {
+private const val EXTRA_COUNTRY = "country"
 
-    interface Presenter : BaseContract.Presenter {
+object Actions {
 
-        fun loadSummary()
+    fun openTotalCases(context: Context, countryViewModel: CountryViewModel) =
+        internalIntent(context, "com.pimenta.covid19.totalcases.open")
+            .putExtra(EXTRA_COUNTRY, countryViewModel)
 
-        fun countryClicked(country: CountryViewModel)
-    }
-
-    interface View {
-
-        fun showProgress()
-
-        fun hideProgress()
-
-        fun showCountries(countries: List<CountryViewModel>)
-
-        fun openTotalCases(countryViewModel: CountryViewModel)
-    }
-
+    private fun internalIntent(context: Context, action: String) =
+        Intent(action).setPackage(context.packageName)
 }

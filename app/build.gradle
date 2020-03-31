@@ -28,6 +28,7 @@ android {
 
 dependencies {
     implementation project(':features:summary')
+    implementation project(':features:total_cases')
     implementation project(':shared:network')
     implementation project(':shared:presentation')
     implementation project(':shared:model')

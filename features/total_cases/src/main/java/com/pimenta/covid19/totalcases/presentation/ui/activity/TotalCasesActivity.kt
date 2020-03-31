@@ -12,20 +12,17 @@
  * the License.
  */
 
-package com.pimenta.covid19.model.presentation.model
+package com.pimenta.covid19.totalcases.presentation.ui.activity
 
-import java.io.Serializable
+import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
 
 /**
- * Created by marcus on 29-03-2020.
+ * Created by marcus on 31-03-2020.
  */
-data class CountryViewModel(
-    val name: String,
-    val slug: String,
-    val newConfirmed: String,
-    val totalConfirmed: String,
-    val newDeaths: String,
-    val totalDeaths: String,
-    val newRecovered: String,
-    val totalRecovered: String
-) : Serializable
+class TotalCasesActivity : FragmentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+}

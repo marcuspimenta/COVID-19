@@ -16,6 +16,7 @@ package com.pimenta.covid19.summary.presentation.presenter
 
 import android.util.Log
 import com.pimenta.covid19.model.presentation.mapper.toViewModel
+import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BasePresenter
 import com.pimenta.covid19.presentation.scheduler.RxScheduler
 import com.pimenta.covid19.summary.domain.GetSummaryUseCaseInterface
@@ -47,6 +48,10 @@ class SummaryPresenter @Inject constructor(
             }, { throwable ->
                 Log.e(TAG, "Error while loading the summary" + throwable.message)
             }).also { compositeDisposable.add(it) }
+    }
+
+    override fun countryClicked(countryViewModel: CountryViewModel) {
+        view.openTotalCases(countryViewModel)
     }
 
 }

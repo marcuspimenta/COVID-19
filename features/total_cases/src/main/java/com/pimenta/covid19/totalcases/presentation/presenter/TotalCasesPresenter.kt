@@ -12,20 +12,11 @@
  * the License.
  */
 
-package com.pimenta.covid19.model.presentation.model
-
-import java.io.Serializable
+package com.pimenta.covid19.totalcases.presentation.presenter
 
 /**
- * Created by marcus on 29-03-2020.
+ * Created by marcus on 31-03-2020.
  */
-data class CountryViewModel(
-    val name: String,
-    val slug: String,
-    val newConfirmed: String,
-    val totalConfirmed: String,
-    val newDeaths: String,
-    val totalDeaths: String,
-    val newRecovered: String,
-    val totalRecovered: String
-) : Serializable
+class TotalCasesPresenter {
+
+}
