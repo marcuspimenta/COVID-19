@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName
  */
 data class CountryResponse(
     @SerializedName("Country") val name: String?,
-    @SerializedName("CountrySlug") val slug: String?,
+    @SerializedName("Slug") val slug: String?,
     @SerializedName("NewConfirmed") val newConfirmed: Int?,
     @SerializedName("TotalConfirmed") val totalConfirmed: Int?,
     @SerializedName("NewDeaths") val newDeaths: Int?,

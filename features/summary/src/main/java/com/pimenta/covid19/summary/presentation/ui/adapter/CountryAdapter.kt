@@ -32,8 +32,8 @@ class CountryAdapter constructor(
 ) : ListAdapter<CountryViewModel, CountryAdapter.CountryViewHolder>(CountryDiffCallback()) {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): CountryViewHolder {
-        val view =
-            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_country, viewGroup, false)
+        val view = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.item_country, viewGroup, false)
         return CountryViewHolder(view)
     }
 
@@ -47,6 +47,15 @@ class CountryAdapter constructor(
 
         fun bind(countryViewModel: CountryViewModel) {
             with(containerView) {
+                val resourceId = resources.getIdentifier(
+                    countryViewModel.slug,
+                    "drawable", context.packageName
+                )
+                if (resourceId > 0) {
+                    val resource = resources.getDrawable(resourceId)
+                    flagImageView.setImageDrawable(resource)
+                }
+
                 nameTextView.text = countryViewModel.name
                 totalConfirmedTextView.text = countryViewModel.totalConfirmed.toString()
                 setOnClickListener {

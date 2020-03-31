@@ -16,17 +16,23 @@ package com.pimenta.covid19.model.presentation.mapper
 
 import com.pimenta.covid19.model.domain.CountryDomainModel
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
+import java.text.DecimalFormat
 
 /**
  * Created by marcus on 29-03-2020.
  */
+private const val PATTERN = "###,###,###"
+private const val DEFAULT_VALUE = "0"
+private const val DEFAULT_NAME_VALUE = ""
+private val FORMATTER = DecimalFormat(PATTERN)
+
 fun CountryDomainModel.toViewModel() = CountryViewModel(
-    name = name,
-    slug = slug,
-    newConfirmed = newConfirmed,
-    totalConfirmed = totalConfirmed,
-    newDeaths = newDeaths,
-    totalDeaths = totalDeaths,
-    newRecovered = newRecovered,
-    totalRecovered = totalRecovered
+    name = name ?: DEFAULT_NAME_VALUE,
+    slug = slug ?: DEFAULT_NAME_VALUE,
+    newConfirmed = newConfirmed?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
+    totalConfirmed = totalConfirmed?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
+    newDeaths = newDeaths?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
+    totalDeaths = totalDeaths?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
+    newRecovered = newRecovered?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
+    totalRecovered = totalRecovered?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE
 )
