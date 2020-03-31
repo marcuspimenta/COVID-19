@@ -31,9 +31,11 @@ class SummaryRepository @Inject constructor(
         summaryRemoteDataSource.getSummary()
             .map {
                 it.countries?.filter { country ->
-                    !country.name.isNullOrBlank() && country.totalConfirmed ?: 0 > 0
+                    !country.name.isNullOrBlank() && !country.slug.isNullOrBlank() &&
+                            country.totalConfirmed ?: 0 > 0
                 }
                     ?.sortedBy { country -> country.totalConfirmed }
+                    ?.distinctBy { country -> country.slug }
                     ?.map { country -> country.toDomainModel() }
                     ?.reversed()
             }
