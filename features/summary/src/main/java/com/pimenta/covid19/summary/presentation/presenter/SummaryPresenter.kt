@@ -36,6 +36,7 @@ class SummaryPresenter @Inject constructor(
     }
 
     override fun loadSummary() {
+        dispose()
         getSummaryUseCase()
             .subscribeOn(rxScheduler.ioScheduler)
             .observeOn(rxScheduler.computationScheduler)
