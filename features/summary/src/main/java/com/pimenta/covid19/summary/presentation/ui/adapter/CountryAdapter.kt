@@ -20,6 +20,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
+import com.pimenta.covid19.presentation.extension.getDrawableByName
 import com.pimenta.covid19.summary.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_country.view.*
@@ -47,15 +48,7 @@ class CountryAdapter constructor(
 
         fun bind(countryViewModel: CountryViewModel) {
             with(containerView) {
-                val resourceId = resources.getIdentifier(
-                    countryViewModel.slug,
-                    "drawable", context.packageName
-                )
-                if (resourceId > 0) {
-                    val resource = resources.getDrawable(resourceId)
-                    flagImageView.setImageDrawable(resource)
-                }
-
+                flagImageView.setImageDrawable(context.getDrawableByName(countryViewModel.slug))
                 nameTextView.text = countryViewModel.name
                 totalConfirmedTextView.text = countryViewModel.totalConfirmed.toString()
                 setOnClickListener {

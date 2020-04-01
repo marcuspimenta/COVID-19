@@ -3,11 +3,11 @@
 
     <application>
         <activity
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:name=".presentation.ui.activity.TotalCasesActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
-                <action android:name="com.pimenta.covid19.totalcases.open"/>
+                <action android:name="com.pimenta.covid19.totalcases.open" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
