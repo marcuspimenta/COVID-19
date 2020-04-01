@@ -28,7 +28,7 @@ private val FORMATTER = DecimalFormat(PATTERN)
 
 fun CountryDomainModel.toViewModel() = CountryViewModel(
     name = name ?: DEFAULT_NAME_VALUE,
-    slug = slug ?: DEFAULT_NAME_VALUE,
+    slug = slug?.replace("-","_") ?: DEFAULT_NAME_VALUE,
     newConfirmed = newConfirmed?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
     totalConfirmed = totalConfirmed?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
     newDeaths = newDeaths?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
