@@ -21,7 +21,7 @@ import com.pimenta.covid19.model.presentation.model.CountryViewModel
 /**
  * Created by marcus on 31-03-2020.
  */
-private const val EXTRA_COUNTRY = "country"
+const val EXTRA_COUNTRY = "country"
 
 object Actions {
 

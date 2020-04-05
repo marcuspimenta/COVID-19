@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
-    android:orientation="vertical"
-    app:behavior_hideable="false"
-    app:behavior_peekHeight="72dp"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        tools:context="com.pimenta.covid19.totalcases.presentation.ui.activity.TotalCasesActivity">
+
+        <ImageView
+            android:id="@+id/flagImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nameTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/brazil" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_content_margin"
+            android:layout_marginLeft="@dimen/card_content_margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/flagImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Brazil" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

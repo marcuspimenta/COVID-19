@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 dependencies {
     implementation project(':shared:presentation')
     implementation project(':shared:model')
+    implementation project(':shared:actions')
 
     // Kotlin
     implementation Dependencies.kotlin

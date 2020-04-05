@@ -27,7 +27,7 @@ interface SummaryContract {
 
         fun loadSummary()
 
-        fun countryClicked(country: CountryViewModel)
+        fun countryClicked(countryViewModel: CountryViewModel)
     }
 
     interface View {

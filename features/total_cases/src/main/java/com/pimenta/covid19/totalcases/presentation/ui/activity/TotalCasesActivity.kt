@@ -15,14 +15,25 @@
 package com.pimenta.covid19.totalcases.presentation.ui.activity
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.pimenta.covid19.actions.EXTRA_COUNTRY
+import com.pimenta.covid19.model.presentation.model.CountryViewModel
+import com.pimenta.covid19.presentation.extension.getDrawableByName
+import com.pimenta.covid19.totalcases.R
+import kotlinx.android.synthetic.main.activity_total_cases.*
 
 /**
  * Created by marcus on 31-03-2020.
  */
-class TotalCasesActivity : FragmentActivity() {
+class TotalCasesActivity : AppCompatActivity() {
+
+    private val countryViewModel by lazy { intent.getSerializableExtra(EXTRA_COUNTRY) as CountryViewModel }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_total_cases)
+
+        flagImageView.setImageDrawable(getDrawableByName(countryViewModel.slug))
+        nameTextView.text = countryViewModel.name
     }
 }

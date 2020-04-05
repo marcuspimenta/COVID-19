@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/flagImageView"
-        android:layout_width="50dp"
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/card_content_margin"
         android:layout_marginLeft="@dimen/card_content_margin"
@@ -20,13 +20,18 @@
 
     <TextView
         android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/card_content_margin"
         android:layout_marginLeft="@dimen/card_content_margin"
+        android:layout_marginEnd="@dimen/card_content_margin"
+        android:layout_marginRight="@dimen/card_content_margin"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@android:color/black"
         android:textSize="@dimen/title_size"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/totalConfirmedTextView"
         app:layout_constraintStart_toEndOf="@+id/flagImageView"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Brazil" />

@@ -54,10 +54,7 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
         }
 
         swipeContainer.setOnRefreshListener { presenter.loadSummary() }
-    }
 
-    override fun onResume() {
-        super.onResume()
         presenter.loadSummary()
     }
 
