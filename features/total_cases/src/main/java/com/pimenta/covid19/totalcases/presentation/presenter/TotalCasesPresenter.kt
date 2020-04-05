@@ -14,9 +14,25 @@
 
 package com.pimenta.covid19.totalcases.presentation.presenter
 
+import com.pimenta.covid19.model.presentation.model.CountryViewModel
+import com.pimenta.covid19.presentation.presenter.BasePresenter
+import javax.inject.Inject
+
 /**
  * Created by marcus on 31-03-2020.
  */
-class TotalCasesPresenter {
+class TotalCasesPresenter @Inject constructor(
+    private val view: TotalCasesContract.View
+) : BasePresenter(), TotalCasesContract.Presenter {
+
+    override fun initView(countryViewModel: CountryViewModel) {
+        with(countryViewModel) {
+            view.showCountryFlag(slug)
+            view.showCountryName(name)
+            view.showConfirmedCases(totalConfirmed)
+            view.showDeaths(totalDeaths)
+            view.showRecoveredCases(totalRecovered)
+        }
+    }
 
 }

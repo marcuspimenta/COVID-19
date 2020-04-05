@@ -17,6 +17,7 @@ package com.pimenta.covid19.di
 import com.pimenta.covid19.di.module.ApplicationModule
 import com.pimenta.covid19.di.module.SubcomponentsModule
 import com.pimenta.covid19.summary.di.SummaryActivityComponent
+import com.pimenta.covid19.totalcases.di.TotalCasesActivityComponent
 import dagger.Component
 import javax.inject.Singleton
 
@@ -33,4 +34,6 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun summaryActivityComponent(): SummaryActivityComponent.Factory
+
+    fun totalCasesActivityComponent(): TotalCasesActivityComponent.Factory
 }

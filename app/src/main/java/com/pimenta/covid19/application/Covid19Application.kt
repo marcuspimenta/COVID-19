@@ -20,12 +20,15 @@ import com.pimenta.covid19.di.DaggerApplicationComponent
 import com.pimenta.covid19.di.module.ApplicationModule
 import com.pimenta.covid19.summary.di.SummaryActivityComponent
 import com.pimenta.covid19.summary.di.SummaryActivityComponentProvider
+import com.pimenta.covid19.totalcases.di.TotalCasesActivityComponent
+import com.pimenta.covid19.totalcases.di.TotalCasesActivityComponentProvider
 
 /**
  * Created by marcus on 29-03-2020.
  */
 class Covid19Application : Application(),
-    SummaryActivityComponentProvider {
+    SummaryActivityComponentProvider,
+    TotalCasesActivityComponentProvider {
 
     private lateinit var applicationComponent: ApplicationComponent
 
@@ -40,4 +43,7 @@ class Covid19Application : Application(),
 
     override fun summaryActivityComponentFactory(): SummaryActivityComponent.Factory =
         applicationComponent.summaryActivityComponent()
+
+    override fun totalCasesActivityComponentFactory(): TotalCasesActivityComponent.Factory =
+        applicationComponent.totalCasesActivityComponent()
 }

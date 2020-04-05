@@ -12,19 +12,12 @@
  * the License.
  */
 
-package com.pimenta.covid19.di.module
-
-import com.pimenta.covid19.summary.di.SummaryActivityComponent
-import com.pimenta.covid19.totalcases.di.TotalCasesActivityComponent
-import dagger.Module
+package com.pimenta.covid19.totalcases.di
 
 /**
- * Created by marcus on 29-03-2020.
+ * Created by marcus on 05-04-2020.
  */
-@Module(
-    subcomponents = [
-        SummaryActivityComponent::class,
-        TotalCasesActivityComponent::class
-    ]
-)
-class SubcomponentsModule
+interface TotalCasesActivityComponentProvider {
+
+    fun totalCasesActivityComponentFactory(): TotalCasesActivityComponent.Factory
+}

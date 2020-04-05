@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation project(':shared:presentation')
@@ -15,6 +16,10 @@ dependencies {
     implementation Dependencies.androidx_core
     implementation Dependencies.androidx_constraintlayout
     implementation Dependencies.androidx_material
+
+    // Dagger
+    implementation Dependencies.dagger
+    kapt Dependencies.dagger_compile
 
     // Test
     androidTestImplementation Dependencies.androidx_junit

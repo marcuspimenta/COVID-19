@@ -14,18 +14,29 @@
 
 package com.pimenta.covid19.totalcases.presentation.presenter
 
+import com.pimenta.covid19.model.presentation.model.CountryViewModel
+import com.pimenta.covid19.presentation.presenter.BaseContract
+
 /**
  * Created by marcus on 31-03-2020.
  */
 interface TotalCasesContract {
 
-    interface Presenter {
+    interface Presenter : BaseContract.Presenter {
 
-
+        fun initView(countryViewModel: CountryViewModel)
     }
 
     interface View {
 
+        fun showCountryFlag(countrySlug: String)
 
+        fun showCountryName(countryName: String)
+
+        fun showConfirmedCases(confirmedCases: String)
+
+        fun showDeaths(deaths: String)
+
+        fun showRecoveredCases(recoveredCases: String)
     }
 }
