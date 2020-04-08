@@ -15,7 +15,6 @@
 package com.pimenta.covid19.totalcases.presentation.ui.activity
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pimenta.covid19.actions.EXTRA_COUNTRY
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
@@ -49,13 +48,7 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
     }
 
     override fun showCountryFlag(countrySlug: String) {
-        when (val resource = getDrawableByName(countrySlug)) {
-            null -> flagImageView.visibility = View.GONE
-            else -> {
-                flagImageView.setImageDrawable(resource)
-                flagImageView.visibility = View.VISIBLE
-            }
-        }
+        flagImageView.setImageDrawable(getDrawableByName(countrySlug))
     }
 
     override fun showCountryName(countryName: String) {
@@ -63,12 +56,19 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
     }
 
     override fun showConfirmedCases(confirmedCases: String) {
+        confirmedCasesTextView.text = String.format(getString(R.string.confirmed_cases), confirmedCases)
+    }
+
+    override fun showNewCases(newCases: String) {
+        newCasesTextView.text = String.format(getString(R.string.new_cases), newCases)
     }
 
     override fun showDeaths(deaths: String) {
+        deathsTextView.text = String.format(getString(R.string.deaths), deaths)
     }
 
     override fun showRecoveredCases(recoveredCases: String) {
+        recoveredCasesTextView.text = String.format(getString(R.string.recovered_cases), recoveredCases)
     }
 
 }

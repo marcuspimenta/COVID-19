@@ -22,7 +22,7 @@ import java.text.DecimalFormat
  * Created by marcus on 29-03-2020.
  */
 private const val PATTERN = "###,###,###,###"
-private const val DEFAULT_VALUE = "0"
+private const val DEFAULT_VALUE = "-"
 private const val DEFAULT_NAME_VALUE = ""
 private val FORMATTER = DecimalFormat(PATTERN)
 

@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="confirmed_cases">Confirmed: %s</string>
+    <string name="new_cases">New: %s</string>
+    <string name="recovered_cases">Recovered: %s</string>
+    <string name="deaths">Deaths: %s</string>
+</resources>

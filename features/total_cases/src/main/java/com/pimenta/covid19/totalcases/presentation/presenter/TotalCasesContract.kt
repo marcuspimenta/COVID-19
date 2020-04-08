@@ -35,8 +35,10 @@ interface TotalCasesContract {
 
         fun showConfirmedCases(confirmedCases: String)
 
-        fun showDeaths(deaths: String)
+        fun showNewCases(newCases: String)
 
         fun showRecoveredCases(recoveredCases: String)
+
+        fun showDeaths(deaths: String)
     }
 }

@@ -30,6 +30,7 @@ class TotalCasesPresenter @Inject constructor(
             view.showCountryFlag(slug)
             view.showCountryName(name)
             view.showConfirmedCases(totalConfirmed)
+            view.showNewCases(newConfirmed)
             view.showDeaths(totalDeaths)
             view.showRecoveredCases(totalRecovered)
         }
