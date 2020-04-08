@@ -15,6 +15,8 @@
 package com.pimenta.covid19.summary.presentation.ui.activity
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +28,7 @@ import com.pimenta.covid19.summary.presentation.presenter.SummaryContract
 import com.pimenta.covid19.summary.presentation.ui.adapter.CountryAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+
 
 /**
  * Created by marcus on 29-03-2020.
@@ -62,6 +65,17 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
         presenter.dispose()
         super.onDestroy()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_summary, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_about -> true
+        else -> super.onOptionsItemSelected(item)
+    }
+
 
     override fun showProgress() {
         swipeContainer.isRefreshing = true
