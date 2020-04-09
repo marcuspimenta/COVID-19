@@ -54,4 +54,8 @@ class SummaryPresenter @Inject constructor(
         view.openTotalCases(countryViewModel)
     }
 
+    override fun aboutClicked() {
+        view.openAbout()
+    }
+
 }

@@ -29,6 +29,9 @@ object Actions {
         internalIntent(context, "com.pimenta.covid19.totalcases.open")
             .putExtra(EXTRA_COUNTRY, countryViewModel)
 
+    fun openAbout(context: Context) =
+        internalIntent(context, "com.pimenta.covid19.about.open")
+
     private fun internalIntent(context: Context, action: String) =
         Intent(action).setPackage(context.packageName)
 }

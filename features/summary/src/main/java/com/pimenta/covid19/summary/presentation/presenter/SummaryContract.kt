@@ -14,7 +14,6 @@
 
 package com.pimenta.covid19.summary.presentation.presenter
 
-import android.content.Intent
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BaseContract
 
@@ -28,6 +27,8 @@ interface SummaryContract {
         fun loadSummary()
 
         fun countryClicked(countryViewModel: CountryViewModel)
+
+        fun aboutClicked()
     }
 
     interface View {
@@ -39,6 +40,8 @@ interface SummaryContract {
         fun showCountries(countries: List<CountryViewModel>)
 
         fun openTotalCases(countryViewModel: CountryViewModel)
+
+        fun openAbout()
     }
 
 }

@@ -20,6 +20,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.pimenta.covid19.actions.Actions
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.summary.R
@@ -28,7 +30,6 @@ import com.pimenta.covid19.summary.presentation.presenter.SummaryContract
 import com.pimenta.covid19.summary.presentation.ui.adapter.CountryAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
-
 
 /**
  * Created by marcus on 29-03-2020.
@@ -59,6 +60,8 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
         swipeContainer.setOnRefreshListener { presenter.loadSummary() }
 
         presenter.loadSummary()
+
+        initAd()
     }
 
     override fun onDestroy() {
@@ -72,10 +75,12 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_about -> true
+        R.id.action_about -> {
+            presenter.aboutClicked()
+            true
+        }
         else -> super.onOptionsItemSelected(item)
     }
-
 
     override fun showProgress() {
         swipeContainer.isRefreshing = true
@@ -96,5 +101,16 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
 
     override fun onItemClicked(countryViewModel: CountryViewModel) {
         presenter.countryClicked(countryViewModel)
+    }
+
+    override fun openAbout() {
+        val intent = Actions.openAbout(this)
+        startActivity(intent)
+    }
+
+    private fun initAd() {
+        MobileAds.initialize(this)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
     }
 }
