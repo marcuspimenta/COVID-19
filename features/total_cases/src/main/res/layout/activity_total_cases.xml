@@ -46,7 +46,7 @@
             android:background="@android:color/darker_gray"
             app:layout_constraintBottom_toTopOf="@+id/confirmedCasesTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/nameTextView"
+            app:layout_constraintStart_toStartOf="@id/flagImageView"
             app:layout_constraintTop_toBottomOf="@id/flagImageView" />
 
         <TextView
