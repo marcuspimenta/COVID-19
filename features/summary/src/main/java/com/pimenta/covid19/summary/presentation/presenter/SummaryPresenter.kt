@@ -19,6 +19,7 @@ import com.pimenta.covid19.model.presentation.mapper.toViewModel
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BasePresenter
 import com.pimenta.covid19.presentation.scheduler.RxScheduler
+import com.pimenta.covid19.summary.R
 import com.pimenta.covid19.summary.domain.GetSummaryUseCaseInterface
 import javax.inject.Inject
 
@@ -47,6 +48,7 @@ class SummaryPresenter @Inject constructor(
                 view.showCountries(result)
             }, { throwable ->
                 Log.e(TAG, "Error while loading the summary" + throwable.message)
+                view.showErrorMessage(R.string.error_message)
             }).also { compositeDisposable.add(it) }
     }
 

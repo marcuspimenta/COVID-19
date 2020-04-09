@@ -2,4 +2,5 @@
 <resources>
     <string name="about">About</string>
     <string name="confirmed_cases_country">Confirmed cases per country</string>
+    <string name="error_message">An error happened. Check your internet connection and try again.</string>
 </resources>

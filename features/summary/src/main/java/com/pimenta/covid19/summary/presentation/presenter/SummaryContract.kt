@@ -14,6 +14,7 @@
 
 package com.pimenta.covid19.summary.presentation.presenter
 
+import androidx.annotation.StringRes
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BaseContract
 
@@ -42,6 +43,8 @@ interface SummaryContract {
         fun openTotalCases(countryViewModel: CountryViewModel)
 
         fun openAbout()
+
+        fun showErrorMessage(@StringRes resource: Int)
     }
 
 }

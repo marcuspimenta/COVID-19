@@ -17,6 +17,8 @@ package com.pimenta.covid19.summary.presentation.ui.activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -106,6 +108,10 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
     override fun openAbout() {
         val intent = Actions.openAbout(this)
         startActivity(intent)
+    }
+
+    override fun showErrorMessage(@StringRes resource: Int) {
+        Toast.makeText(applicationContext, resource, Toast.LENGTH_SHORT).show()
     }
 
     private fun initAd() {
