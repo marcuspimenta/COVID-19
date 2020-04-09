@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="background">@null</item>
+    </style>
+
+</resources>

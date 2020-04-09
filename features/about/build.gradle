@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    // Kotlin
+    implementation Dependencies.kotlin
+
+    // AndroidX
+    implementation Dependencies.androidx_appcompat
+    implementation Dependencies.androidx_core
+    implementation Dependencies.androidx_constraintlayout
+    implementation Dependencies.androidx_material
+
+    // Test
+    androidTestImplementation Dependencies.androidx_junit
+    androidTestImplementation Dependencies.androidx_espresso
+}
