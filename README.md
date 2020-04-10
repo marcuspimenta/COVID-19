@@ -7,6 +7,10 @@ COVID-19 Cases app showes the cases by country powered by the Center for Systems
 <li>Show the country cases details</li>
 </ul>
 
+<p align="center">
+  <img src="gif/covid19_cases.gif">
+</p>
+
 ## Tech-stack
 This project uses the popular libraries and tools from the Android ecosystem.
 - Tech-stack
