@@ -22,6 +22,14 @@ dependencies {
     // Kotlin
     implementation Dependencies.kotlin
 
+    // AndroidX
+    implementation Dependencies.androidx_appcompat
+    implementation Dependencies.androidx_core
+    implementation Dependencies.androidx_constraintlayout
+    implementation Dependencies.androidx_recyclerview
+    implementation Dependencies.androidx_cardview
+    implementation Dependencies.androidx_swiperefreshlayout
+
     // Dagger
     implementation Dependencies.dagger
     kapt Dependencies.dagger_compile
@@ -41,15 +49,8 @@ dependencies {
     // JUnit
     testImplementation Dependencies.junit
 
-    // AndroidX
-    implementation Dependencies.androidx_appcompat
-    implementation Dependencies.androidx_core
-    implementation Dependencies.androidx_constraintlayout
-    implementation Dependencies.androidx_recyclerview
-    implementation Dependencies.androidx_cardview
-    implementation Dependencies.androidx_swiperefreshlayout
-
-    // Test
-    androidTestImplementation Dependencies.androidx_junit
-    androidTestImplementation Dependencies.androidx_espresso
+    // Mockito
+    testImplementation Dependencies.mockito_inline
+    testImplementation Dependencies.mockito_core
+    testImplementation Dependencies.mockito_kotlin
 }
