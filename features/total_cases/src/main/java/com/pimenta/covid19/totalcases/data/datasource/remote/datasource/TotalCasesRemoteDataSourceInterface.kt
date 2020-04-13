@@ -22,8 +22,7 @@ import io.reactivex.Single
  */
 interface TotalCasesRemoteDataSourceInterface {
 
-    fun getTotalCasesByType(
-        slug: String,
-        type: String
+    fun getAllStatusByCountry(
+        slug: String
     ): Single<List<CountryCaseResponse>?>
 }

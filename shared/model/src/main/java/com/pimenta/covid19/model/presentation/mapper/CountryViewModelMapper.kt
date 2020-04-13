@@ -23,16 +23,20 @@ import java.text.DecimalFormat
  */
 private const val PATTERN = "###,###,###,###"
 private const val DEFAULT_VALUE = "-"
-private const val DEFAULT_NAME_VALUE = ""
 private val FORMATTER = DecimalFormat(PATTERN)
 
 fun CountryDomainModel.toViewModel() = CountryViewModel(
-    name = name ?: DEFAULT_NAME_VALUE,
-    slug = slug?.replace("-","_") ?: DEFAULT_NAME_VALUE,
+    name = name,
+    slug = slug.replace("-", "_"),
     newConfirmed = newConfirmed?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
     totalConfirmed = totalConfirmed?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
     newDeaths = newDeaths?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
     totalDeaths = totalDeaths?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
     newRecovered = newRecovered?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE,
     totalRecovered = totalRecovered?.let { FORMATTER.format(it) } ?: DEFAULT_VALUE
+)
+
+fun CountryViewModel.toDomainModel() = CountryDomainModel(
+    name = name,
+    slug = slug.replace("_", "-")
 )

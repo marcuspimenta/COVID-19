@@ -20,9 +20,11 @@ import com.pimenta.covid19.model.domain.CountryDomainModel
 /**
  * Created by marcus on 29-03-2020.
  */
+private const val DEFAULT_VALUE = "-"
+
 fun CountryResponse.toDomainModel() = CountryDomainModel(
-    name = name,
-    slug = slug,
+    name = name ?: DEFAULT_VALUE,
+    slug = slug ?: DEFAULT_VALUE,
     newConfirmed = newConfirmed,
     totalConfirmed = totalConfirmed,
     newDeaths = newDeaths,

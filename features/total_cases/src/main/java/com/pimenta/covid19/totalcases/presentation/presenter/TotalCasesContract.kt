@@ -25,6 +25,8 @@ interface TotalCasesContract {
     interface Presenter : BaseContract.Presenter {
 
         fun initView(countryViewModel: CountryViewModel)
+
+        fun loadCases(countryViewModel: CountryViewModel)
     }
 
     interface View {

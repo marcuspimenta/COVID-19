@@ -15,14 +15,18 @@
 package com.pimenta.covid19.totalcases.domain
 
 import com.pimenta.covid19.model.domain.CountryCaseDomainModel
+import com.pimenta.covid19.totalcases.data.repository.TotalCasesRepositoryInterface
 import io.reactivex.Single
+import javax.inject.Inject
 
 /**
  * Created by marcus on 13-04-2020.
  */
-interface GetStatusCasesByCountryUseCaseInterface {
+class GetAllStatusByCountryUseCase @Inject constructor(
+    private val totalCasesRepository: TotalCasesRepositoryInterface
+) : GetAllStatusByCountryUseCaseInterface {
 
-    operator fun invoke(
-        slug: String
-    ): Single<Triple<List<CountryCaseDomainModel>?, List<CountryCaseDomainModel>?, List<CountryCaseDomainModel>?>>
+    override fun invoke(slug: String): Single<List<CountryCaseDomainModel>?> =
+        totalCasesRepository.getAllStatusByCountry(slug)
+
 }

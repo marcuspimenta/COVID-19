@@ -24,9 +24,8 @@ import retrofit2.http.Path
  */
 interface TotalCasesApi {
 
-    @GET("/dayone/country/{slug}/status/{type}")
-    fun getTotalCasesByType(
-        @Path("slug") slug: String,
-        @Path("type") type: String
+    @GET("/country/{slug}")
+    fun getAllStatusByCountry(
+        @Path("slug") slug: String
     ): Single<List<CountryCaseResponse>?>
 }

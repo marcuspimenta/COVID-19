@@ -27,11 +27,8 @@ class TotalCasesRepository @Inject constructor(
     private val totalCasesRemoteDataSource: TotalCasesRemoteDataSourceInterface
 ) : TotalCasesRepositoryInterface {
 
-    override fun getTotalCasesByType(
-        slug: String,
-        type: String
-    ): Single<List<CountryCaseDomainModel>?> =
-        totalCasesRemoteDataSource.getTotalCasesByType(slug, type)
+    override fun getAllStatusByCountry(slug: String): Single<List<CountryCaseDomainModel>?> =
+        totalCasesRemoteDataSource.getAllStatusByCountry(slug)
             .map { result ->
                 result.map { countryCaseResponse ->
                     countryCaseResponse.toDomainModel()

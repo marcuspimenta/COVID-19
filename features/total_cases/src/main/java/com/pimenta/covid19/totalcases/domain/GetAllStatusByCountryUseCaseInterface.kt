@@ -12,22 +12,17 @@
  * the License.
  */
 
-package com.pimenta.covid19.totalcases.data.datasource.remote.datasource
+package com.pimenta.covid19.totalcases.domain
 
-import com.pimenta.covid19.model.data.remote.CountryCaseResponse
-import com.pimenta.covid19.totalcases.data.datasource.remote.api.TotalCasesApi
+import com.pimenta.covid19.model.domain.CountryCaseDomainModel
 import io.reactivex.Single
-import javax.inject.Inject
 
 /**
  * Created by marcus on 13-04-2020.
  */
-class TotalCasesRemoteDataSource @Inject constructor(
-    private val totalCasesApi: TotalCasesApi
-) : TotalCasesRemoteDataSourceInterface {
+interface GetAllStatusByCountryUseCaseInterface {
 
-    override fun getAllStatusByCountry(
+    operator fun invoke(
         slug: String
-    ): Single<List<CountryCaseResponse>?> =
-        totalCasesApi.getAllStatusByCountry(slug)
+    ): Single<List<CountryCaseDomainModel>?>
 }

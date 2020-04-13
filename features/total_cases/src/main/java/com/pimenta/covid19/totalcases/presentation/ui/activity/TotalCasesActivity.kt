@@ -45,6 +45,12 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
         setContentView(R.layout.activity_total_cases)
 
         presenter.initView(countryViewModel)
+        presenter.loadCases(countryViewModel)
+    }
+
+    override fun onDestroy() {
+        presenter.dispose()
+        super.onDestroy()
     }
 
     override fun showCountryFlag(countrySlug: String) {

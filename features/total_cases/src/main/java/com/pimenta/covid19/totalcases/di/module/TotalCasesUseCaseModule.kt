@@ -15,8 +15,8 @@
 package com.pimenta.covid19.totalcases.di.module
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.totalcases.domain.GetStatusCasesByCountryUseCase
-import com.pimenta.covid19.totalcases.domain.GetStatusCasesByCountryUseCaseInterface
+import com.pimenta.covid19.totalcases.domain.GetAllStatusByCountryUseCase
+import com.pimenta.covid19.totalcases.domain.GetAllStatusByCountryUseCaseInterface
 import dagger.Binds
 import dagger.Module
 
@@ -29,6 +29,6 @@ interface TotalCasesUseCaseModule {
     @Binds
     @ActivityScope
     fun providesGetStatusCasesByCountryUseCase(
-        getStatusCasesByCountryUseCase: GetStatusCasesByCountryUseCase
-    ): GetStatusCasesByCountryUseCaseInterface
+        getStatusCasesByCountryUseCase: GetAllStatusByCountryUseCase
+    ): GetAllStatusByCountryUseCaseInterface
 }
