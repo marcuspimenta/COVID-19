@@ -15,7 +15,7 @@
 package com.pimenta.covid19.totalcases.di
 
 import com.pimenta.covid19.presentation.di.annotation.ActivityScope
-import com.pimenta.covid19.totalcases.di.module.TotalCasesPresenterModule
+import com.pimenta.covid19.totalcases.di.module.*
 import com.pimenta.covid19.totalcases.presentation.presenter.TotalCasesContract
 import com.pimenta.covid19.totalcases.presentation.ui.activity.TotalCasesActivity
 import dagger.BindsInstance
@@ -27,7 +27,11 @@ import dagger.Subcomponent
 @ActivityScope
 @Subcomponent(
     modules = [
-        TotalCasesPresenterModule::class
+        TotalCasesApiModule::class,
+        TotalCasesPresenterModule::class,
+        TotalCasesRemoteDataSourceModule::class,
+        TotalCasesRepositoryModule::class,
+        TotalCasesUseCaseModule::class
     ]
 )
 interface TotalCasesActivityComponent {

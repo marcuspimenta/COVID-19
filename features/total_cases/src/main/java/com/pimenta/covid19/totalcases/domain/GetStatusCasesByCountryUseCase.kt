@@ -27,17 +27,17 @@ private const val CONFIRMED = "confirmed"
 private const val RECOVERED = "recovered"
 private const val DEATHS = "deaths"
 
-class GetStatusCasesByCountry @Inject constructor(
-    private val totalCasesRepositoryInterface: TotalCasesRepositoryInterface
+class GetStatusCasesByCountryUseCase @Inject constructor(
+    private val totalCasesRepository: TotalCasesRepositoryInterface
 ) : GetStatusCasesByCountryUseCaseInterface {
 
     override fun invoke(
         slug: String
     ): Single<Triple<List<CountryCaseDomainModel>?, List<CountryCaseDomainModel>?, List<CountryCaseDomainModel>?>> =
         Single.zip(
-            totalCasesRepositoryInterface.getTotalCasesByType(slug, CONFIRMED),
-            totalCasesRepositoryInterface.getTotalCasesByType(slug, RECOVERED),
-            totalCasesRepositoryInterface.getTotalCasesByType(slug, DEATHS),
+            totalCasesRepository.getTotalCasesByType(slug, CONFIRMED),
+            totalCasesRepository.getTotalCasesByType(slug, RECOVERED),
+            totalCasesRepository.getTotalCasesByType(slug, DEATHS),
             Function3 { confirmed, recovered, deaths ->
                 Triple(confirmed, recovered, deaths)
             }

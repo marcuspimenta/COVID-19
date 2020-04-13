@@ -24,14 +24,14 @@ import javax.inject.Inject
  * Created by marcus on 13-04-2020.
  */
 class TotalCasesRepository @Inject constructor(
-    private val totalCasesRemoteDataSourceInterface: TotalCasesRemoteDataSourceInterface
+    private val totalCasesRemoteDataSource: TotalCasesRemoteDataSourceInterface
 ) : TotalCasesRepositoryInterface {
 
     override fun getTotalCasesByType(
         slug: String,
         type: String
     ): Single<List<CountryCaseDomainModel>?> =
-        totalCasesRemoteDataSourceInterface.getTotalCasesByType(slug, type)
+        totalCasesRemoteDataSource.getTotalCasesByType(slug, type)
             .map { result ->
                 result.map { countryCaseResponse ->
                     countryCaseResponse.toDomainModel()
