@@ -21,6 +21,15 @@ dependencies {
     implementation Dependencies.dagger
     kapt Dependencies.dagger_compile
 
+    // Retrofit
+    implementation Dependencies.retrofit
+
+    // Rx
+    implementation Dependencies.rxandroid
+
+    // Gson
+    implementation Dependencies.gson
+
     // Test
     androidTestImplementation Dependencies.androidx_junit
     androidTestImplementation Dependencies.androidx_espresso
