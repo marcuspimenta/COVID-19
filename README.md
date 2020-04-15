@@ -10,7 +10,7 @@ COVID-19 Cases app showes the cases by country powered by the Center for Systems
 </ul>
 
 <p align="center">
-  <img src="gif/covid19_cases.gif">
+  <img src="gif/covid19_cases_v2.gif">
 </p>
 
 ## Tech-stack
