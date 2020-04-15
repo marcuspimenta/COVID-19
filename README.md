@@ -26,6 +26,12 @@ This project uses the popular libraries and tools from the Android ecosystem.
     - [Unit Tests](https://en.wikipedia.org/wiki/Unit_testing)
     - [Mockito](https://github.com/mockito/mockito) 
     - [Mockito-Kotlin](https://github.com/nhaarman/mockito-kotlin)
+    
+## Modularization
+The app is modularized. We can see the dependency graph with all the modules.
+<p align="center">
+  <img src="dependency_graph/dependency-graph.png">
+</p>
 
 ## Licence
 ```
