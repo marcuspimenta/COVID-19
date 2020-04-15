@@ -1,4 +1,6 @@
 # COVID-19 Cases
+[![Kotlin Version](https://img.shields.io/badge/Kotlin-1.3.72-blue.svg)](https://kotlinlang.org)
+
 COVID-19 Cases app showes the cases by country powered by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU).
 
 ## Features
