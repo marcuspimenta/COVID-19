@@ -19,7 +19,7 @@ object Config {
 }
 
 object Versions {
-    val kotlin = "1.3.71"
+    val kotlin = "1.3.72"
     val build_gradle = "3.5.3"
     val ktlint = "9.2.1"
     val ben_mane_gralde = "0.28.0"
