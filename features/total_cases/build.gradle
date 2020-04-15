@@ -30,6 +30,9 @@ dependencies {
     // Gson
     implementation Dependencies.gson
 
+    // MPAndroidChart
+    implementation Dependencies.mp_android_chart
+
     // Test
     androidTestImplementation Dependencies.androidx_junit
     androidTestImplementation Dependencies.androidx_espresso

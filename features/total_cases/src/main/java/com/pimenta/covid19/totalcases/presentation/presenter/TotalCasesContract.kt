@@ -14,6 +14,7 @@
 
 package com.pimenta.covid19.totalcases.presentation.presenter
 
+import com.github.mikephil.charting.data.Entry
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BaseContract
 
@@ -31,6 +32,10 @@ interface TotalCasesContract {
 
     interface View {
 
+        fun showProgress()
+
+        fun hideProgress()
+
         fun showCountryFlag(countrySlug: String)
 
         fun showCountryName(countryName: String)
@@ -42,5 +47,7 @@ interface TotalCasesContract {
         fun showRecoveredCases(recoveredCases: String)
 
         fun showDeaths(deaths: String)
+
+        fun showGraph(cases: Pair<List<String>, List<List<Entry>>>)
     }
 }

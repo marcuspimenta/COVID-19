@@ -21,11 +21,7 @@ import com.pimenta.covid19.model.domain.CountryCaseDomainModel
  * Created by marcus on 13-04-2020.
  */
 fun CountryCaseResponse.toDomainModel() = CountryCaseDomainModel(
-    country = country,
-    countryCode = countryCode,
-    lat = lat,
-    lon = lon,
-    cases = cases,
-    status = status,
+    confirmed = confirmed ?: 0,
+    deaths = deaths ?: 0,
     date = date
 )

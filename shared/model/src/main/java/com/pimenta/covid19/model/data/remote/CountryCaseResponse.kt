@@ -20,11 +20,7 @@ import com.google.gson.annotations.SerializedName
  * Created by marcus on 13-04-2020.
  */
 data class CountryCaseResponse(
-    @SerializedName("Country") val country: String?,
-    @SerializedName("CountryCode") val countryCode: String?,
-    @SerializedName("Lat") val lat: String?,
-    @SerializedName("Lon") val lon: String?,
-    @SerializedName("Cases") val cases: Int?,
-    @SerializedName("Status") val status: String?,
-    @SerializedName("Date") val date: String?
+    @SerializedName("Confirmed") val confirmed: Int?,
+    @SerializedName("Deaths") val deaths: Int?,
+    @SerializedName("Date") val date: String
 )

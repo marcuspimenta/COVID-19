@@ -3,14 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        tools:context="com.pimenta.covid19.totalcases.presentation.ui.activity.TotalCasesActivity">
+        android:padding="15dp">
 
         <ImageView
             android:id="@+id/flagImageView"
@@ -44,35 +42,45 @@
             android:layout_height="0.5dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toTopOf="@+id/confirmedCasesTextView"
+            app:layout_constraintBottom_toTopOf="@+id/casesLineChart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/flagImageView"
             app:layout_constraintTop_toBottomOf="@id/flagImageView" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/casesLineChart"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toTopOf="@id/confirmedCasesTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separatorView" />
 
         <TextView
             android:id="@+id/confirmedCasesTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/card_content_margin"
+            android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/newCasesTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/separatorView"
+            app:layout_constraintTop_toBottomOf="@id/casesLineChart"
             tools:text="Confirmed: 199" />
 
         <TextView
             android:id="@+id/newCasesTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/card_content_margin"
+            android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/recoveredCasesTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,11 +91,11 @@
             android:id="@+id/recoveredCasesTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/card_content_margin"
+            android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/deathsTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,16 +106,26 @@
             android:id="@+id/deathsTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/card_content_margin"
+            android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recoveredCasesTextView"
             tools:text="Deaths: 199" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

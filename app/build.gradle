@@ -56,6 +56,9 @@ dependencies {
     // AndroidX
     implementation Dependencies.androidx_appcompat
 
+    // MPAndroidChart
+    implementation Dependencies.mp_android_chart
+
     // Firebase Ads
     implementation Dependencies.firebase_ads
 }

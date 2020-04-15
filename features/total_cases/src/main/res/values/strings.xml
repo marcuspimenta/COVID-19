@@ -3,5 +3,7 @@
     <string name="confirmed_cases">Confirmed: %s</string>
     <string name="new_cases">New: %s</string>
     <string name="recovered_cases">Recovered: %s</string>
-    <string name="deaths">Deaths: %s</string>
+    <string name="deaths_cases">Deaths: %s</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="deaths">Deaths</string>
 </resources>

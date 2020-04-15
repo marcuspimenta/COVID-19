@@ -18,11 +18,7 @@ package com.pimenta.covid19.model.domain
  * Created by marcus on 13-04-2020.
  */
 data class CountryCaseDomainModel(
-    val country: String?,
-    val countryCode: String?,
-    val lat: String?,
-    val lon: String?,
-    val cases: Int?,
-    val status: String?,
-    val date: String?
+    val confirmed: Int,
+    val deaths: Int,
+    val date: String
 )

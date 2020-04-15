@@ -46,6 +46,7 @@ object Versions {
     val androidx_swiperefreshlayout = "1.0.0"
     val androidx_material = "1.1.0-alpha04"
     val firebase_ads = "18.0.0"
+    val mp_android_chart = "3.1.0"
 }
 
 object Dependencies {
@@ -77,4 +78,5 @@ object Dependencies {
     val androidx_swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidx_swiperefreshlayout}"
     val androidx_material = "com.google.android.material:material:${Versions.androidx_material}"
     val firebase_ads = "com.google.firebase:firebase-ads:${Versions.firebase_ads}"
+    val mp_android_chart = "com.github.PhilJay:MPAndroidChart:v${Versions.mp_android_chart}"
 }

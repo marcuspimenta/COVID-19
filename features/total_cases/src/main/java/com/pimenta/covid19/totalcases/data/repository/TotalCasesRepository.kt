@@ -29,8 +29,8 @@ class TotalCasesRepository @Inject constructor(
 
     override fun getAllStatusByCountry(slug: String): Single<List<CountryCaseDomainModel>?> =
         totalCasesRemoteDataSource.getAllStatusByCountry(slug)
-            .map { result ->
-                result.map { countryCaseResponse ->
+            .map {
+                it.map { countryCaseResponse ->
                     countryCaseResponse.toDomainModel()
                 }
             }

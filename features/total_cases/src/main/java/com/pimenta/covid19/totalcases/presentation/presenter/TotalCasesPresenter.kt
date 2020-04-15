@@ -16,6 +16,7 @@ package com.pimenta.covid19.totalcases.presentation.presenter
 
 import android.util.Log
 import com.pimenta.covid19.model.presentation.mapper.toDomainModel
+import com.pimenta.covid19.model.presentation.mapper.toViewModel
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BasePresenter
 import com.pimenta.covid19.presentation.scheduler.RxScheduler
@@ -49,18 +50,17 @@ class TotalCasesPresenter @Inject constructor(
     override fun loadCases(countryViewModel: CountryViewModel) {
         getStatusCasesByCountryUseCase(countryViewModel.toDomainModel().slug)
             .subscribeOn(rxScheduler.ioScheduler)
-            //.observeOn(rxScheduler.computationScheduler)
-            //.map { it.map { country -> country.toViewModel() } }
+            .observeOn(rxScheduler.computationScheduler)
+            .map { it.toViewModel() }
             .observeOn(rxScheduler.mainScheduler)
-            //.doOnSubscribe { view.showProgress() }
-            //.doFinally { view.hideProgress() }
+            .doOnSubscribe { view.showProgress() }
+            .doFinally { view.hideProgress() }
             .subscribe({ result ->
-                //view.showCountries(result)
-                //Log.e(TAG, result.toString())
+                result?.let {
+                    view.showGraph(result)
+                }
             }, { throwable ->
                 Log.e(TAG, "Error while loading the total cases" + throwable.message)
-                //view.showErrorMessage(R.string.error_message)
             }).also { compositeDisposable.add(it) }
     }
-
 }

@@ -14,8 +14,18 @@
 
 package com.pimenta.covid19.totalcases.presentation.ui.activity
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.github.mikephil.charting.components.AxisBase
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.components.XAxis.XAxisPosition
+import com.github.mikephil.charting.components.YAxis.AxisDependency
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.ValueFormatter
 import com.pimenta.covid19.actions.EXTRA_COUNTRY
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.extension.getDrawableByName
@@ -24,6 +34,7 @@ import com.pimenta.covid19.totalcases.di.TotalCasesActivityComponentProvider
 import com.pimenta.covid19.totalcases.presentation.presenter.TotalCasesContract
 import kotlinx.android.synthetic.main.activity_total_cases.*
 import javax.inject.Inject
+
 
 /**
  * Created by marcus on 31-03-2020.
@@ -44,6 +55,8 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_total_cases)
 
+        initGraph()
+
         presenter.initView(countryViewModel)
         presenter.loadCases(countryViewModel)
     }
@@ -51,6 +64,14 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
     override fun onDestroy() {
         presenter.dispose()
         super.onDestroy()
+    }
+
+    override fun showProgress() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgress() {
+        progressBar.visibility = View.GONE
     }
 
     override fun showCountryFlag(countrySlug: String) {
@@ -62,7 +83,8 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
     }
 
     override fun showConfirmedCases(confirmedCases: String) {
-        confirmedCasesTextView.text = String.format(getString(R.string.confirmed_cases), confirmedCases)
+        confirmedCasesTextView.text =
+            String.format(getString(R.string.confirmed_cases), confirmedCases)
     }
 
     override fun showNewCases(newCases: String) {
@@ -70,11 +92,76 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
     }
 
     override fun showDeaths(deaths: String) {
-        deathsTextView.text = String.format(getString(R.string.deaths), deaths)
+        deathsTextView.text = String.format(getString(R.string.deaths_cases), deaths)
     }
 
     override fun showRecoveredCases(recoveredCases: String) {
-        recoveredCasesTextView.text = String.format(getString(R.string.recovered_cases), recoveredCases)
+        recoveredCasesTextView.text =
+            String.format(getString(R.string.recovered_cases), recoveredCases)
     }
 
+    override fun showGraph(cases: Pair<List<String>, List<List<Entry>>>) {
+        val formatter: ValueFormatter = object : ValueFormatter() {
+            override fun getAxisLabel(value: Float, axis: AxisBase): String =
+                cases.first[value.toInt()]
+        }
+        casesLineChart.xAxis.valueFormatter = formatter
+
+        val confirmedLineDataSet = LineDataSet(cases.second[0], getString(R.string.confirmed)).apply {
+            axisDependency = AxisDependency.LEFT
+            lineWidth = 2f
+            setDrawValues(false)
+            setDrawCircles(false)
+            setColors(Color.argb(255, 255, 153, 0))
+        }
+
+        val deathsLineDataSet = LineDataSet(cases.second[1], getString(R.string.deaths)).apply {
+            axisDependency = AxisDependency.LEFT
+            lineWidth = 2f
+            setDrawValues(false)
+            setDrawCircles(false)
+            setColors(Color.RED)
+        }
+
+        val dataSets = listOf(
+            confirmedLineDataSet,
+            deathsLineDataSet
+        )
+
+        with(casesLineChart) {
+            data = LineData(dataSets)
+            invalidate()
+        }
+    }
+
+    private fun initGraph() {
+        with(casesLineChart) {
+            xAxis.apply {
+                position = XAxisPosition.BOTTOM
+                axisMinimum = 0f
+                setDrawAxisLine(true)
+                setDrawGridLines(true)
+                enableGridDashedLine(3f, 3f, 0f)
+            }
+
+            axisLeft.apply {
+                axisMinimum = 0f
+                setDrawAxisLine(true)
+                setDrawGridLines(true)
+                enableGridDashedLine(3f, 3f, 0f)
+            }
+
+
+            axisRight.apply {
+                axisMinimum = 0f
+                setDrawAxisLine(false)
+                setDrawGridLines(false)
+                setDrawLabels(false)
+            }
+
+            casesLineChart.description = Description().apply {
+                text = ""
+            }
+        }
+    }
 }
