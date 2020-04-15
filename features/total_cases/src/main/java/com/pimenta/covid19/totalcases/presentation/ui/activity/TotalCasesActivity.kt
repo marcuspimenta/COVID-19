@@ -17,6 +17,8 @@ package com.pimenta.covid19.totalcases.presentation.ui.activity
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.Description
@@ -132,6 +134,10 @@ class TotalCasesActivity : AppCompatActivity(), TotalCasesContract.View {
             data = LineData(dataSets)
             invalidate()
         }
+    }
+
+    override fun showErrorMessage(@StringRes resource: Int) {
+        Toast.makeText(applicationContext, resource, Toast.LENGTH_SHORT).show()
     }
 
     private fun initGraph() {

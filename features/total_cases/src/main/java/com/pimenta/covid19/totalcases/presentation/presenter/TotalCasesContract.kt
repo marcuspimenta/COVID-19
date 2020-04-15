@@ -14,6 +14,7 @@
 
 package com.pimenta.covid19.totalcases.presentation.presenter
 
+import androidx.annotation.StringRes
 import com.github.mikephil.charting.data.Entry
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BaseContract
@@ -49,5 +50,7 @@ interface TotalCasesContract {
         fun showDeaths(deaths: String)
 
         fun showGraph(cases: Pair<List<String>, List<List<Entry>>>)
+
+        fun showErrorMessage(@StringRes resource: Int)
     }
 }

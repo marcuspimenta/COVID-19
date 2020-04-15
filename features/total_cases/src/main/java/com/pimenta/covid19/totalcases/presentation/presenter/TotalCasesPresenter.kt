@@ -20,6 +20,7 @@ import com.pimenta.covid19.model.presentation.mapper.toViewModel
 import com.pimenta.covid19.model.presentation.model.CountryViewModel
 import com.pimenta.covid19.presentation.presenter.BasePresenter
 import com.pimenta.covid19.presentation.scheduler.RxScheduler
+import com.pimenta.covid19.totalcases.R
 import com.pimenta.covid19.totalcases.domain.GetAllStatusByCountryUseCaseInterface
 import javax.inject.Inject
 
@@ -61,6 +62,7 @@ class TotalCasesPresenter @Inject constructor(
                 }
             }, { throwable ->
                 Log.e(TAG, "Error while loading the total cases" + throwable.message)
+                view.showErrorMessage(R.string.error_message)
             }).also { compositeDisposable.add(it) }
     }
 }
