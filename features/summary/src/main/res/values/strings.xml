@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about">About</string>
-    <string name="confirmed_cases_country">Confirmed cases per country</string>
+    <string name="confirmed_cases_country">COVID-19 confirmed cases per country</string>
 </resources>

@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pimenta.covid19.totalcases">
+    package="com.pimenta.pandemicreports.totalcases">
 
     <application>
         <activity
-            android:name=".presentation.ui.activity.TotalCasesActivity"
+            android:name="com.pimenta.pandemicreports.totalcases.presentation.ui.activity.TotalCasesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppFullScreenTheme">
             <intent-filter>
