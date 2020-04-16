@@ -1,16 +1,16 @@
-# COVID-19 Cases
+# Pandemic reports
 [![Kotlin Version](https://img.shields.io/badge/Kotlin-1.3.72-blue.svg)](https://kotlinlang.org)
 
-COVID-19 Cases app showes the cases by country powered by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU).
+Pandemic reports app shows the cases by country powered by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU).
 
 ## Features
 <ul>
-<li>Show the country list with the confirmed cases</li>
-<li>Show the country cases details</li>
+<li>Show the country list with the COVID-19 confirmed cases</li>
+<li>Show the graph with the cases</li>
 </ul>
 
 <p align="center">
-  <img src="gif/covid19_cases_v2.gif">
+  <img src="gif/pandemic_reports.gif">
 </p>
 
 ## Tech-stack
@@ -29,10 +29,10 @@ This project uses the popular libraries and tools from the Android ecosystem.
     - [Mockito](https://github.com/mockito/mockito) 
     - [Mockito-Kotlin](https://github.com/nhaarman/mockito-kotlin)
     
-## Modularization
+## Modules
 The app is modularized. We can see the dependency graph with all the modules.
 <p align="center">
-  <img src="dependency_graph/dependency-graph.png">
+  <img src="dependency_graph/dependency-graph-v2.png">
 </p>
 
 ## Licence
