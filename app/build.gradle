@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0.0"
     }
+    defaultConfig {
+        buildConfigField "String", "BASE_URL", "\"https://api.covid19api.com/\""
+    }
     buildTypes {
         debug {
             debuggable true
@@ -37,7 +40,6 @@ dependencies {
     implementation project(':features:summary')
     implementation project(':features:total_cases')
     implementation project(':features:about')
-    implementation project(':shared:network')
     implementation project(':shared:presentation')
     implementation project(':shared:model')
 
@@ -48,14 +50,20 @@ dependencies {
     implementation Dependencies.dagger
     kapt Dependencies.dagger_compile
 
+    // AndroidX
+    implementation Dependencies.androidx_appcompat
+
     // Retrofit
     implementation Dependencies.retrofit
+    implementation Dependencies.retrofit_converter_gson
+
+    // OkHttp
+    implementation Dependencies.okhttp
+    implementation Dependencies.logging_interceptor
 
     // Rx
     implementation Dependencies.rxandroid
-
-    // AndroidX
-    implementation Dependencies.androidx_appcompat
+    implementation Dependencies.retrofit2_rxjava2_adapter
 
     // MPAndroidChart
     implementation Dependencies.mp_android_chart

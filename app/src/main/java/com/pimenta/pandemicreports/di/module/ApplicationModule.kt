@@ -15,7 +15,6 @@
 package com.pimenta.pandemicreports.di.module
 
 import android.app.Application
-import com.pimenta.pandemicreports.network.di.module.RemoteDateSourceConfigurationModule
 import com.pimenta.pandemicreports.presentation.scheduler.RxScheduler
 import dagger.Module
 import dagger.Provides

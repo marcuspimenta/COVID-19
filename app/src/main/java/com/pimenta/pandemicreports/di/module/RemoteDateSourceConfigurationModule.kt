@@ -12,11 +12,11 @@
  * the License.
  */
 
-package com.pimenta.pandemicreports.network.di.module
+package com.pimenta.pandemicreports.di.module
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import com.pimenta.pandemicreports.network.BuildConfig
+import com.pimenta.pandemicreports.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
