@@ -32,7 +32,7 @@ This project uses the popular libraries and tools from the Android ecosystem.
 ## Modules
 The app is modularized. We can see the dependency graph with all the modules.
 <p align="center">
-  <img src="dependency_graph/dependency-graph-v2.png">
+  <img src="dependency_graph/dependency-graph-v3.png">
 </p>
 
 ## Licence
