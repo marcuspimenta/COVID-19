@@ -3,17 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-android {
-    buildTypes {
-        debug {
-            resValue "string", "summary_ad_unit_id", "ca-app-pub-3940256099942544/6300978111"
-        }
-        release {
-            resValue "string", "summary_ad_unit_id", "ca-app-pub-3940256099942544/6300978111"
-        }
-    }
-}
-
 dependencies {
     implementation project(':shared:presentation')
     implementation project(':shared:model')
@@ -42,9 +31,6 @@ dependencies {
 
     // Gson
     implementation Dependencies.gson
-
-    // Firebase Ads
-    implementation Dependencies.firebase_ads
 
     // JUnit
     testImplementation Dependencies.junit

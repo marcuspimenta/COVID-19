@@ -22,8 +22,6 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 import com.pimenta.pandemicreports.actions.Actions
 import com.pimenta.pandemicreports.model.presentation.model.CountryViewModel
 import com.pimenta.pandemicreports.summary.R
@@ -62,8 +60,6 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
         swipeContainer.setOnRefreshListener { presenter.loadSummary() }
 
         presenter.loadSummary()
-
-        initAd()
     }
 
     override fun onDestroy() {
@@ -112,11 +108,5 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
 
     override fun showErrorMessage(@StringRes resource: Int) {
         Toast.makeText(applicationContext, resource, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun initAd() {
-        MobileAds.initialize(this)
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
     }
 }

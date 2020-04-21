@@ -19,9 +19,6 @@ android {
             multiDexEnabled true
             minifyEnabled false
             shrinkResources false
-            manifestPlaceholders = [
-                    ADMOB_APP_ID: "ca-app-pub-3940256099942544~3347511713"
-            ]
         }
         release {
             debuggable false
@@ -29,9 +26,6 @@ android {
             shrinkResources true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            manifestPlaceholders = [
-                    ADMOB_APP_ID: "ca-app-pub-3940256099942544~3347511713"
-            ]
         }
     }
 }
@@ -67,7 +61,4 @@ dependencies {
 
     // MPAndroidChart
     implementation Dependencies.mp_android_chart
-
-    // Firebase Ads
-    implementation Dependencies.firebase_ads
 }
