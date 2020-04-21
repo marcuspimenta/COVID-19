@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pimenta.pandemicreports">
+    package="com.pimenta.pandreports">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".application.PandemicReportsApplication"
+        android:name="com.pimenta.pandreports.application.PandemicReportsApplication"
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"

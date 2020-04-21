@@ -6,7 +6,7 @@ apply from: 'https://raw.githubusercontent.com/JakeWharton/SdkSearch/master/grad
 
 android {
     defaultConfig {
-        applicationId "com.pimenta.pandemicreports"
+        applicationId "com.pimenta.pandreports"
         versionCode 1
         versionName "1.0.0"
     }
