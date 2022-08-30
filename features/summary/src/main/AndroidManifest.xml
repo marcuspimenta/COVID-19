@@ -4,6 +4,7 @@
     <application>
         <activity
             android:name="com.pimenta.pandreports.summary.presentation.ui.activity.SummaryActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,6 +4,7 @@
     <application>
         <activity
             android:name="com.pimenta.pandreports.totalcases.presentation.ui.activity.TotalCasesActivity"
+            android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppFullScreenTheme">
             <intent-filter>

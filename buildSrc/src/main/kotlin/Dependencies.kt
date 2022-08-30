@@ -14,37 +14,37 @@
 
 object Config {
     val minSdk = 16
-    val compileSdk = 29
-    val targetSdk = 29
+    val compileSdk = 33
+    val targetSdk = 33
 }
 
 object Versions {
-    val kotlin = "1.3.72"
-    val build_gradle = "3.5.3"
-    val ktlint = "9.2.1"
-    val ben_mane_gralde = "0.28.0"
-    val junit = "4.13"
-    val mockito_inline = "3.3.3"
-    val mockito_core = "3.3.3"
-    val mockito_kotlin = "2.1.0"
-    val gson = "2.8.6"
-    val dagger = "2.27"
-    val dagger_compile = "2.27"
+    val kotlin = "1.7.20-Beta"
+    val build_gradle = "7.2.1"
+    val ktlint = "11.0.0"
+    val ben_mane_gralde = "0.42.0"
+    val junit = "4.13.2"
+    val mockito_inline = "4.7.0"
+    val mockito_core = "4.7.0"
+    val mockito_kotlin = "2.2.0"
+    val gson = "2.9.1"
+    val dagger = "2.43.2"
+    val dagger_compile = "2.43.2"
     val rxandroid = "2.1.1"
-    val retrofit = "2.7.2"
-    val retrofit_converter_gson = "2.7.2"
-    val okhttp = "4.4.1"
-    val logging_interceptor = "4.4.1"
+    val retrofit = "2.9.0"
+    val retrofit_converter_gson = "2.9.0"
+    val okhttp = "5.0.0-alpha.10"
+    val logging_interceptor = "5.0.0-alpha.10"
     val retrofit2_rxjava2_adapter = "1.0.0"
-    val androidx_junit = "1.1.1"
-    val androidx_espresso = "3.2.0"
-    val androidx_appcompat = "1.1.0"
-    val androidx_core = "1.2.0"
-    val androidx_constraintlayout = "1.1.3"
-    val androidx_recyclerview = "1.1.0"
+    val androidx_junit = "1.1.4-alpha07"
+    val androidx_espresso = "3.5.0-alpha07"
+    val androidx_appcompat = "1.6.0-beta01"
+    val androidx_core = "1.9.0-rc01"
+    val androidx_constraintlayout = "2.2.0-alpha03"
+    val androidx_recyclerview = "1.3.0-beta02"
     val androidx_cardview = "1.0.0"
-    val androidx_swiperefreshlayout = "1.0.0"
-    val androidx_material = "1.1.0-alpha04"
+    val androidx_swiperefreshlayout = "1.2.0-alpha01"
+    val androidx_material = "1.7.0-beta01"
     val mp_android_chart = "3.1.0"
 }
 
