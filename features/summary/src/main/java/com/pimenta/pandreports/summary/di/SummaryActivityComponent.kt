@@ -16,9 +16,7 @@ package com.pimenta.pandreports.summary.di
 
 import com.pimenta.pandreports.presentation.di.annotation.ActivityScope
 import com.pimenta.pandreports.summary.di.module.*
-import com.pimenta.pandreports.summary.presentation.presenter.SummaryContract
 import com.pimenta.pandreports.summary.presentation.ui.activity.SummaryActivity
-import dagger.BindsInstance
 import dagger.Subcomponent
 
 /**
@@ -31,14 +29,14 @@ import dagger.Subcomponent
         SummaryRemoteDataSourceModule::class,
         SummaryRepositoryModule::class,
         SummaryUseCaseModule::class,
-        SummaryPresenterModule::class
+        SummaryViewModelModule::class
     ]
 )
 interface SummaryActivityComponent {
 
     @Subcomponent.Factory
     interface Factory {
-        fun create(@BindsInstance view: SummaryContract.View): SummaryActivityComponent
+        fun create(): SummaryActivityComponent
     }
 
     fun inject(activity: SummaryActivity)

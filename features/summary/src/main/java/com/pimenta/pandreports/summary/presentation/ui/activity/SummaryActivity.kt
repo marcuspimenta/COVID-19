@@ -18,34 +18,37 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.annotation.StringRes
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pimenta.pandreports.actions.Actions
-import com.pimenta.pandreports.model.presentation.model.CountryViewModel
 import com.pimenta.pandreports.summary.R
 import com.pimenta.pandreports.summary.di.SummaryActivityComponentProvider
-import com.pimenta.pandreports.summary.presentation.presenter.SummaryContract
+import com.pimenta.pandreports.summary.presentation.model.SummaryViewEvent
+import com.pimenta.pandreports.summary.presentation.model.SummaryViewState
+import com.pimenta.pandreports.summary.presentation.presenter.SummaryViewModel
 import com.pimenta.pandreports.summary.presentation.ui.adapter.CountryAdapter
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 /**
  * Created by marcus on 29-03-2020.
  */
-class SummaryActivity : AppCompatActivity(), SummaryContract.View,
-    CountryAdapter.OnItemViewClickedListener {
+class SummaryActivity : AppCompatActivity() {
 
-    private val countryAdapter by lazy { CountryAdapter(this) }
+    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val viewModel by viewModels<SummaryViewModel> { viewModelFactory }
 
-    @Inject
-    lateinit var presenter: SummaryContract.Presenter
+    private val compositeDisposable = CompositeDisposable()
+    private val countryAdapter = CountryAdapter { viewModel.onCountryClicked(it) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as SummaryActivityComponentProvider)
             .summaryActivityComponentFactory()
-            .create(this)
+            .create()
             .inject(this)
 
         super.onCreate(savedInstanceState)
@@ -57,13 +60,22 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
             adapter = countryAdapter
         }
 
-        swipeContainer.setOnRefreshListener { presenter.loadSummary() }
+        swipeContainer.setOnRefreshListener { viewModel.onRefreshed() }
 
-        presenter.loadSummary()
+        viewModel.run {
+            state.subscribe {
+                handleViewState(it)
+            }.also { compositeDisposable.add(it) }
+            events.subscribe {
+                handleViewEvent(it)
+            }.also { compositeDisposable.add(it) }
+
+            onInit()
+        }
     }
 
     override fun onDestroy() {
-        presenter.dispose()
+        compositeDisposable.clear()
         super.onDestroy()
     }
 
@@ -74,39 +86,30 @@ class SummaryActivity : AppCompatActivity(), SummaryContract.View,
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_about -> {
-            presenter.aboutClicked()
+            viewModel.onAboutClicked()
             true
         }
         else -> super.onOptionsItemSelected(item)
     }
 
-    override fun showProgress() {
-        swipeContainer.isRefreshing = true
+    private fun handleViewState(summaryViewState: SummaryViewState) {
+        countryAdapter.submitList(summaryViewState.countries)
+
+        swipeContainer.isRefreshing = summaryViewState.isLoading
     }
 
-    override fun hideProgress() {
-        swipeContainer.isRefreshing = false
-    }
-
-    override fun showCountries(countries: List<CountryViewModel>) {
-        countryAdapter.submitList(countries)
-    }
-
-    override fun openTotalCases(countryViewModel: CountryViewModel) {
-        val intent = Actions.openTotalCases(this, countryViewModel)
-        startActivity(intent)
-    }
-
-    override fun onItemClicked(countryViewModel: CountryViewModel) {
-        presenter.countryClicked(countryViewModel)
-    }
-
-    override fun openAbout() {
-        val intent = Actions.openAbout(this)
-        startActivity(intent)
-    }
-
-    override fun showErrorMessage(@StringRes resource: Int) {
-        Toast.makeText(applicationContext, resource, Toast.LENGTH_SHORT).show()
+    private fun handleViewEvent(summaryViewEvent: SummaryViewEvent) = when (summaryViewEvent) {
+        SummaryViewEvent.OpenAbout -> {
+            val intent = Actions.openAbout(this)
+            startActivity(intent)
+        }
+        is SummaryViewEvent.OpenCountryDetail -> {
+            val intent = Actions.openTotalCases(this, summaryViewEvent.countryViewModel)
+            startActivity(intent)
+        }
+        is SummaryViewEvent.ShowErrorMessage -> {
+            Toast.makeText(applicationContext, summaryViewEvent.resource, Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 }

@@ -18,6 +18,7 @@ dependencies {
     implementation Dependencies.androidx_recyclerview
     implementation Dependencies.androidx_cardview
     implementation Dependencies.androidx_swiperefreshlayout
+    implementation Dependencies.androidx_fragment
 
     // Dagger
     implementation Dependencies.dagger

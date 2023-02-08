@@ -19,7 +19,7 @@ object Config {
 }
 
 object Versions {
-    val kotlin = "1.7.20-Beta"
+    val kotlin = "1.7.10"
     val build_gradle = "7.2.1"
     val ktlint = "11.0.0"
     val ben_mane_gralde = "0.42.0"
@@ -45,6 +45,7 @@ object Versions {
     val androidx_cardview = "1.0.0"
     val androidx_swiperefreshlayout = "1.2.0-alpha01"
     val androidx_material = "1.7.0-beta01"
+    val androidx_fragment = "1.4.1"
     val mp_android_chart = "3.1.0"
 }
 
@@ -76,5 +77,6 @@ object Dependencies {
     val androidx_cardview = "androidx.cardview:cardview:${Versions.androidx_cardview}"
     val androidx_swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.androidx_swiperefreshlayout}"
     val androidx_material = "com.google.android.material:material:${Versions.androidx_material}"
+    val androidx_fragment = "androidx.fragment:fragment-ktx:${Versions.androidx_fragment}"
     val mp_android_chart = "com.github.PhilJay:MPAndroidChart:v${Versions.mp_android_chart}"
 }

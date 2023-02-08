@@ -25,6 +25,7 @@ import javax.inject.Singleton
  */
 @Module(
     includes = [
+        DaggerViewModelInjectionModule::class,
         RemoteDateSourceConfigurationModule::class
     ]
 )

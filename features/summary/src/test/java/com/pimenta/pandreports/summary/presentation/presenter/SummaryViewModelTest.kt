@@ -20,8 +20,12 @@ import com.pimenta.pandreports.model.presentation.model.CountryViewModel
 import com.pimenta.pandreports.presentation.scheduler.RxScheduler
 import com.pimenta.pandreports.summary.R
 import com.pimenta.pandreports.summary.domain.GetSummaryUseCaseInterface
+import com.pimenta.pandreports.summary.presentation.model.SummaryViewEvent
+import com.pimenta.pandreports.summary.presentation.model.SummaryViewState
 import io.reactivex.Single
+import io.reactivex.observers.TestObserver
 import io.reactivex.schedulers.Schedulers
+import org.junit.Before
 import org.junit.Test
 
 /**
@@ -54,9 +58,10 @@ private val COUNTRY_VIEW_MODEL_LIST = listOf(
     COUNTRY_VIEW_MODEL
 )
 
-class SummaryPresenterTest {
+class SummaryViewModelTest {
 
-    private val view: SummaryContract.View = mock()
+    private val stateObserver = TestObserver<SummaryViewState>()
+    private val eventsObserver = TestObserver<SummaryViewEvent>()
     private val getSummaryUseCase: GetSummaryUseCaseInterface = mock()
     private val rxSchedulerTest = RxScheduler(
         Schedulers.trampoline(),
@@ -64,51 +69,75 @@ class SummaryPresenterTest {
         Schedulers.trampoline()
     )
 
-    private val presenter = SummaryPresenter(
-        view,
+    private val viewModel = SummaryViewModel(
         getSummaryUseCase,
         rxSchedulerTest
     )
+
+    @Before
+    fun init() {
+        viewModel.state.subscribe(stateObserver)
+        viewModel.events.subscribe(eventsObserver)
+    }
 
     @Test
     fun `should load the summary view when the data is loaded without an error`() {
         whenever(getSummaryUseCase()).thenReturn(Single.just(COUNTRY_DOMAIN_MODEL_LIST))
 
-        presenter.loadSummary()
+        viewModel.onInit()
 
-        inOrder(view) {
-            verify(view).showProgress()
-            verify(view).showCountries(COUNTRY_VIEW_MODEL_LIST)
-            verify(view).hideProgress()
-            verifyNoMoreInteractions(view)
-        }
+        stateObserver.assertValues(
+            SummaryViewState.INITIAL,
+            SummaryViewState.INITIAL.copy(state = SummaryViewState.State.Loading),
+            SummaryViewState.INITIAL.copy(
+                state = SummaryViewState.State.Loading,
+                countries = COUNTRY_VIEW_MODEL_LIST
+            ),
+            SummaryViewState.INITIAL.copy(
+                state = SummaryViewState.State.None,
+                countries = COUNTRY_VIEW_MODEL_LIST
+            )
+        )
+        eventsObserver.assertNoValues()
     }
 
     @Test
     fun `should show an error message view when the summary data returns an error`() {
         whenever(getSummaryUseCase()).thenReturn(Single.error(Throwable()))
 
-        presenter.loadSummary()
+        viewModel.onInit()
 
-        inOrder(view) {
-            verify(view).showProgress()
-            verify(view).showErrorMessage(R.string.error_message)
-            verify(view).hideProgress()
-            verifyNoMoreInteractions(view)
-        }
+        stateObserver.assertValues(
+            SummaryViewState.INITIAL,
+            SummaryViewState.INITIAL.copy(state = SummaryViewState.State.Loading),
+            SummaryViewState.INITIAL.copy(state = SummaryViewState.State.None)
+        )
+        eventsObserver.assertValues(
+            SummaryViewEvent.ShowErrorMessage(R.string.error_message)
+        )
     }
 
     @Test
     fun `should open the total cases view when clicks in a country`() {
-        presenter.countryClicked(COUNTRY_VIEW_MODEL)
+        viewModel.onCountryClicked(COUNTRY_VIEW_MODEL)
 
-        verify(view, only()).openTotalCases(COUNTRY_VIEW_MODEL)
+        stateObserver.assertValues(
+            SummaryViewState.INITIAL
+        )
+        eventsObserver.assertValues(
+            SummaryViewEvent.OpenCountryDetail(COUNTRY_VIEW_MODEL)
+        )
     }
 
     @Test
     fun `should open the about view when clicks in about icon`() {
-        presenter.aboutClicked()
+        viewModel.onAboutClicked()
 
-        verify(view, only()).openAbout()
+        stateObserver.assertValues(
+            SummaryViewState.INITIAL
+        )
+        eventsObserver.assertValues(
+            SummaryViewEvent.OpenAbout
+        )
     }
 }

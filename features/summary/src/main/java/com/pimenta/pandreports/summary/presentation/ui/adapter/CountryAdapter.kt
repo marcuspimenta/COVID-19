@@ -29,21 +29,22 @@ import kotlinx.android.synthetic.main.item_country.view.*
  * Created by marcus on 30-03-2020.
  */
 class CountryAdapter constructor(
-    var onItemViewClickedListener: OnItemViewClickedListener? = null
+    private val onItemViewClickedListener: (CountryViewModel) -> Unit
 ) : ListAdapter<CountryViewModel, CountryAdapter.CountryViewHolder>(CountryDiffCallback()) {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): CountryViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.item_country, viewGroup, false)
-        return CountryViewHolder(view)
+        return CountryViewHolder(view, onItemViewClickedListener)
     }
 
     override fun onBindViewHolder(viewHolder: CountryViewHolder, position: Int) {
         viewHolder.bind(getItem(position))
     }
 
-    inner class CountryViewHolder(
-        override val containerView: View
+    class CountryViewHolder(
+        override val containerView: View,
+        private val onItemViewClickedListener: (CountryViewModel) -> Unit
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
         fun bind(countryViewModel: CountryViewModel) {
@@ -52,15 +53,9 @@ class CountryAdapter constructor(
                 nameTextView.text = countryViewModel.name
                 totalConfirmedTextView.text = countryViewModel.totalConfirmed.toString()
                 setOnClickListener {
-                    onItemViewClickedListener?.onItemClicked(countryViewModel)
+                    onItemViewClickedListener(countryViewModel)
                 }
             }
         }
-    }
-
-    interface OnItemViewClickedListener {
-
-        fun onItemClicked(countryViewModel: CountryViewModel)
-
     }
 }
